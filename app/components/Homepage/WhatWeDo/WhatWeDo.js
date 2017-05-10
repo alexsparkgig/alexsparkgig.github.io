@@ -4,19 +4,23 @@ var EventCard = require('./EventCard.js');
 var eventData = [{
 		name: "Magic Shows",
 		description: "event1",
-		link: "event1link"
+		link: "event1link",
+		imageLink: "event1imagelink"
 	}, {
 		name: "Face Painting",
 		description: "event2",
-		link: "event2link"
+		link: "event2link",
+		imageLink: "event2imagelink"
 	}, {
 		name: "Balloon Twisting",
 		description: "event3",
-		link: "event3link"
+		link: "event3link",
+		imageLink: "event3imagelink"
 	}, {
-		name: "Superhero Shows"
+		name: "Superhero Shows",
 		description: "event4",
-		link: "event4link"
+		link: "event4link",
+		imageLink: "event4imagelink"
 	}
 ];
 
@@ -31,12 +35,17 @@ var WhatWeDo = React.createClass({
 			<div style={style}>
 				<h2>What We Do</h2>
 				<div>
-					<EventCard event={eventData[0].name]} />
-					<EventCard event={eventData[1].name]} />
-				</div>
-				<div>
-					<EventCard event={eventData[2].name]} />
-					<EventCard event={eventData[3].name]} />
+					{
+						eventData.map(function(data) {
+							return (
+								<EventCard key={data.name}
+										   imageLink={data.imageLink}
+										   event={data.name} 
+							   			   description={data.description}
+							               link={data.link} />
+							);
+						})
+					}
 				</div>
 			</div>
 		);
