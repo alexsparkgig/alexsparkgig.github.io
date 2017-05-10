@@ -1,13 +1,20 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
+var PropTypes = require('prop-types');
 
 var Step = React.createClass({
+	propTypes: {
+		imageLink: PropTypes.string.isRequired,
+		description: PropTypes.string.isRequired,
+		link: PropTypes.string.isRequired
+	},
 	render: function() {
 		return (
-			<img src={} />
-			<div className="number">{this.props.number}</div>
-			<div>This is the {} step:</div>
-			<div>This is a line about the type of show we offer.</div>
+			<div>
+				{/*<img src={this.props.imageLink} />*/}
+				<div className="number">{this.props.name}</div>
+				<div>{"Step " + this.props.name}</div>
+				<div>{this.props.description}</div>
+			</div>
 		)
 	}
 });

@@ -4,7 +4,7 @@ var HomePage = require('./HomePage.js');
 
 var style = {
 	border: '1px solid black',
-	borderWidth: 1
+	fontFamily: 'Helvetica Neue'
 }
 
 var App = React.createClass({

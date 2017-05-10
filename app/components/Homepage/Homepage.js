@@ -4,6 +4,7 @@ var ReactDOM = require('react-dom');
 // var Navigation = require('./Navigation.js');
 var Header = require('./Heading.js');
 var WhatWeDo = require('./WhatWeDo/WhatWeDo.js');
+var HowItWorks = require('./HowItWorks/HowItWorks.js');
 
 var HomePage = React.createClass({
 	render: function() {
@@ -17,13 +18,13 @@ var HomePage = React.createClass({
 					videos:
 					<iframe src={}></iframe>
 
-					<HowItWorks />
 					<OurPastEvents />
 					<Locations />
 					<Quote />
 					*/
 				}
 				<WhatWeDo />
+				<HowItWorks />
 			</div>
 		)
 	}
