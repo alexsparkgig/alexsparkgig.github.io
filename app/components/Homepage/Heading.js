@@ -3,11 +3,12 @@ var React = require('react');
 var SparkGigLogo = "";
 var Header = React.createClass({
 	viewExperiences: function() {
+		// maybe scroll down to "What we do"?
 		console.log("view experiences");
 	},
 	render: function() {
 		return (
-			<div>
+			<div style={this.props.style} >
 				<div>
 					{/* Logo here: <img src={SparkGigLogo} /> */}
 					SparkGig

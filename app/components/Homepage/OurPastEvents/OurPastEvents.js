@@ -1,12 +1,15 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
+var PastEventReview = require('./PastEventReview.js');
 
 var OurPastEvents = React.createClass({
 	render: function() {
 		return (
-			<h2>Our Past Events</h2>
-			<PastEventPics></PastEventPics>
-		)	
+			<div>
+				<h2>Our Past Events</h2>
+				<PastEventReview />
+				<PastEventReview />
+			</div>
+		);
 	}
 });
 

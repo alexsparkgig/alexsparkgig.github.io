@@ -1,6 +1,8 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 
+var style = {}
+
 var EventCard = React.createClass({
 	propTypes: {
 		imageLink: PropTypes.string.isRequired,
@@ -14,15 +16,20 @@ var EventCard = React.createClass({
 	render() {
 		return (
 			<div>
-				{/*<img src={this.props.imageLink} />*/}
-				<div className="heading">
-					{this.props.event}
+				<div style={this.props.style}>
+					{/*<img src={this.props.imageLink} />*/}
 				</div>
-				<div className="description">
-					{this.props.description}
-				</div>
-				<div className="link" onClick={this.seeAvailabilityHander}>
-					See Availability
+
+				<div style={this.props.style}>
+					<div className="heading">
+						{this.props.event}
+					</div>
+					<div className="description">
+						{this.props.description}
+					</div>
+					<div className="link" onClick={this.seeAvailabilityHander}>
+						See Availability
+					</div>
 				</div>
 			</div>
 		);

@@ -42,7 +42,8 @@ var WhatWeDo = React.createClass({
 										   imageLink={data.imageLink}
 										   event={data.name} 
 							   			   description={data.description}
-							               link={data.link} />
+							               link={data.link}
+							               style={style} />
 							);
 						})
 					}
