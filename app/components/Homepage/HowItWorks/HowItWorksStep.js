@@ -17,7 +17,7 @@ var Step = React.createClass({
 			<div>
 				{/*<img src={this.props.imageLink}
 						style={style_pic} />*/}
-				<div className="number">{this.props.number} style={style_pic.circle}</div>
+				<div className="number" style={style_steps.circle}>{this.props.number}</div>
 				<div>{"Step " + this.props.number}</div>
 				<div>{this.props.description}</div>
 			</div>

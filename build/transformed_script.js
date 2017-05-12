@@ -10145,13 +10145,23 @@ var Locations = __webpack_require__(97);
 var Logos = __webpack_require__(98);
 var Quote = __webpack_require__(101);
 
+var colors = {
+	section: '#64717A', // (what we do, our locations) section title
+	pale_blue: '#FBFCFF',
+	body_text: '#7A7A7A',
+	circle_color: '#EAEBEE',
+	circle_text: '#797979',
+	CTA_buttons: '#53A5E3',
+	white: 'white'
+};
+
 var general_style = {
 	border: '1px solid #DFE5E9',
 	cta: {
 		color: '#53A5E3'
 	},
 	section: {
-		color: '#64717A'
+		color: colors.section
 	},
 	body: {
 		color: '7A7A7A'
@@ -10161,29 +10171,26 @@ var general_style = {
 			float: 'left'
 		},
 		steps: {
+			// display: 'flex',
+			// justifyContent: 'center',
+			// alignItems: 'center'
+			// border: '1px solid #DFE5E9',
 			circle: {
-				color: 'EAEBEE',
+				backgroundColor: colors.circle_color,
+				color: colors.section,
 				borderRadius: '100%',
-				width: 50
+				width: 50,
+				height: 50,
+				textAlign: 'center',
+				lineHeight: '50px',
+				fontSize: '150%'
 			},
 			text: {
-				color: '797979'
+				color: colors.circle_text
 			}
 		}
 	}
 };
-
-// pale blue: FBFCFF
-// White: white
-
-// section (what we do, our locations) title: 64717A
-// CTA buttons: 53A5E3
-
-// body text: 7A7A7A
-
-// Circles with numbers representing steps
-// - Circle shape: EAEBEE
-// - Text inside: 797979
 
 var HomePage = React.createClass({
 	displayName: 'HomePage',
@@ -10204,7 +10211,6 @@ var HomePage = React.createClass({
 });
 
 module.exports = HomePage;
-// <Navigation />
 
 /***/ }),
 /* 95 */
@@ -10246,8 +10252,6 @@ var HowItWorks = React.createClass({
 			),
 			howItWorksData.map(function (data, i) {
 				var num = i + 1;
-				console.log("what ");
-				console.log(this);
 				return React.createElement(Step, { key: num,
 					number: num,
 					description: data.description,
@@ -10287,10 +10291,8 @@ var Step = React.createClass({
 			null,
 			React.createElement(
 				'div',
-				{ className: 'number' },
-				this.props.number,
-				' style=',
-				style_pic.circle
+				{ className: 'number', style: style_steps.circle },
+				this.props.number
 			),
 			React.createElement(
 				'div',
