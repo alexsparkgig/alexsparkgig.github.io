@@ -1,15 +1,15 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 
 var Logos = React.createClass({
 	render: function() {
 		return (
 			<div>
+				Logosz
+				{/*<img src={} />
 				<img src={} />
 				<img src={} />
 				<img src={} />
-				<img src={} />
-				<img src={} />
+				<img src={} />*/}
 			</div>
 		)	
 	}
