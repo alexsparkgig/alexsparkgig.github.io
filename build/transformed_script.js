@@ -10167,26 +10167,61 @@ var general_style = {
 		color: '7A7A7A'
 	},
 	howItWorks: {
+		wrapper: {
+			display: 'block',
+			width: '100%',
+			height: 250,
+			textAlign: 'center'
+		},
 		pic: {
-			float: 'left'
+			float: 'left',
+			borderRadius: '25px',
+			backgroundColor: colors.circle_color,
+			width: 300,
+			height: '80%',
+			display: 'inline-block',
+			marginLeft: '10%',
+			marginRight: '10%'
 		},
 		steps: {
+			wrapper: {
+				float: 'left',
+				height: '80%',
+				// width: '40%',
+				display: 'inline-block',
+				boxSizing: 'border-box',
+				// marginRight: 'auto',
+				marginLeft: '5%'
+			},
 			// display: 'flex',
 			// justifyContent: 'center',
 			// alignItems: 'center'
 			// border: '1px solid #DFE5E9',
 			circle: {
 				backgroundColor: colors.circle_color,
-				color: colors.section,
+				color: colors.circle_text,
 				borderRadius: '100%',
 				width: 50,
 				height: 50,
 				textAlign: 'center',
 				lineHeight: '50px',
-				fontSize: '150%'
+				fontSize: '150%',
+				display: 'inline-block',
+				verticalAlign: 'top'
 			},
-			text: {
-				color: colors.circle_text
+			text_wrapper: {
+				display: 'inline-block',
+				marginLeft: '30px',
+				height: 75,
+				textAlign: 'left'
+			},
+			heading: {
+				color: colors.section,
+				fontSize: '30px'
+			},
+			description: {
+				color: colors.section,
+				fontSize: '20px'
 			}
 		}
 	}
@@ -10220,19 +10255,19 @@ var React = __webpack_require__(7);
 var Step = __webpack_require__(96);
 
 var howItWorksData = [{
-	description: "event1",
+	description: "this is a line about what we offer event1",
 	link: "event1link",
 	imageLink: "event1imagelink"
 }, {
-	description: "event2",
+	description: "this is a line about what we offer event2",
 	link: "event2link",
 	imageLink: "event2imagelink"
 }, {
-	description: "event3",
+	description: "this is a line about what we offer event3",
 	link: "event3link",
 	imageLink: "event3imagelink"
 }, {
-	description: "event4",
+	description: "this is a line about what we offer event4",
 	link: "event4link",
 	imageLink: "event4imagelink"
 }];
@@ -10281,28 +10316,46 @@ var Step = React.createClass({
 		link: PropTypes.string.isRequired
 	},
 	render: function () {
-		if (this.props.number % 2 == 0) {
-			// this.props.style.HowItWorks.pic.float = 'right';
-		}
 		var style_steps = this.props.style.steps;
 		var style_pic = this.props.style.pic;
+
+		// (this.props.number % 2 == 0) ? style_pic.float = 'right' : style_pic.float = 'left'
+
 		return React.createElement(
 			'div',
-			null,
-			React.createElement(
+			{ style: this.props.style.wrapper },
+			this.props.number % 2 == 1 && React.createElement(
 				'div',
-				{ className: 'number', style: style_steps.circle },
-				this.props.number
+				{ className: 'img_placeholder', style: style_pic },
+				'raaahdsfgsfg'
 			),
 			React.createElement(
 				'div',
-				null,
-				"Step " + this.props.number
+				{ className: 'title_and_desc', style: style_steps.wrapper },
+				React.createElement(
+					'div',
+					{ className: 'number', style: style_steps.circle },
+					this.props.number
+				),
+				React.createElement(
+					'div',
+					{ style: style_steps.text_wrapper },
+					React.createElement(
+						'div',
+						{ style: style_steps.heading },
+						"Step " + this.props.number
+					),
+					React.createElement(
+						'div',
+						{ style: style_steps.description },
+						this.props.description
+					)
+				)
 			),
-			React.createElement(
+			this.props.number % 2 == 0 && React.createElement(
 				'div',
-				null,
-				this.props.description
+				{ className: 'img_placeholder', style: style_pic },
+				'raaahdsfgsfg'
 			)
 		);
 	}

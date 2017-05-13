@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 
+
 var Step = React.createClass({
 	propTypes: {
 		imageLink: PropTypes.string.isRequired,
@@ -8,18 +9,24 @@ var Step = React.createClass({
 		link: PropTypes.string.isRequired
 	},
 	render: function() {
-		if (this.props.number % 2 == 0) {
-			// this.props.style.HowItWorks.pic.float = 'right';
-		}
 		var style_steps = this.props.style.steps;
 		var style_pic = this.props.style.pic;
+
+		// (this.props.number % 2 == 0) ? style_pic.float = 'right' : style_pic.float = 'left'
+
 		return (
-			<div>
+			<div style={this.props.style.wrapper}>
 				{/*<img src={this.props.imageLink}
 						style={style_pic} />*/}
-				<div className="number" style={style_steps.circle}>{this.props.number}</div>
-				<div>{"Step " + this.props.number}</div>
-				<div>{this.props.description}</div>
+				{(this.props.number % 2 == 1) && <div className="img_placeholder" style={style_pic}>raaahdsfgsfg</div>}
+				<div className="title_and_desc" style={style_steps.wrapper}>
+					<div className="number" style={style_steps.circle}>{this.props.number}</div>
+					<div style={style_steps.text_wrapper}>
+						<div style={style_steps.heading}>{"Step " + this.props.number}</div>
+						<div style={style_steps.description}>{this.props.description}</div>
+					</div>
+				</div>
+				{(this.props.number % 2 == 0) && <div className="img_placeholder" style={style_pic}>raaahdsfgsfg</div>}
 			</div>
 		)
 	}
