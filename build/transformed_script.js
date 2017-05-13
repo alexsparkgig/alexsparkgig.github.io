@@ -10167,11 +10167,19 @@ var general_style = {
 		color: '7A7A7A'
 	},
 	howItWorks: {
+		header: {
+			color: colors.section,
+			textAlign: 'center',
+			fontFamily: 'Helvetica Neue',
+			margin: '40px',
+			fontSize: '32px'
+		},
 		wrapper: {
 			display: 'block',
 			width: '100%',
 			height: 250,
-			textAlign: 'center'
+			textAlign: 'center',
+			marginTop: '50px'
 		},
 		pic: {
 			float: 'left',
@@ -10216,7 +10224,7 @@ var general_style = {
 				textAlign: 'left'
 			},
 			heading: {
-				color: colors.section,
+				color: 'black',
 				fontSize: '30px'
 			},
 			description: {
@@ -10281,8 +10289,8 @@ var HowItWorks = React.createClass({
 			'div',
 			null,
 			React.createElement(
-				'h2',
-				null,
+				'div',
+				{ style: style.header },
 				'How it Works'
 			),
 			howItWorksData.map(function (data, i) {

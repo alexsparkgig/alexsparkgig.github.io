@@ -25,7 +25,7 @@ var HowItWorks = React.createClass({
 		var style = this.props.style;
 		return (
 			<div>
-				<h2>How it Works</h2>
+				<div style={style.header}>How it Works</div>
 				{
 					howItWorksData.map(function(data, i) {
 						var num = (i+1);
