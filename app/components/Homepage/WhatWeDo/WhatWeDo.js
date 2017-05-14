@@ -3,37 +3,34 @@ var EventCard = require('./EventCard.js');
 
 var eventData = [{
 		name: "Magic Shows",
-		description: "event1",
+		description: "event1 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
 		link: "event1link",
 		imageLink: "event1imagelink"
 	}, {
 		name: "Face Painting",
-		description: "event2",
+		description: "event2 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asff",
 		link: "event2link",
 		imageLink: "event2imagelink"
 	}, {
 		name: "Balloon Twisting",
-		description: "event3",
+		description: "event3 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
 		link: "event3link",
 		imageLink: "event3imagelink"
 	}, {
 		name: "Superhero Shows",
-		description: "event4",
+		description: "event4a; asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
 		link: "event4link",
 		imageLink: "event4imagelink"
 	}
 ];
 
-var style = {
-	border: '1px solid black',
-	borderWidth: 1
-}
-
 var WhatWeDo = React.createClass({
 	render() {
+		var style = this.props.style;
+
 		return (
-			<div style={style}>
-				<h2>What We Do</h2>
+			<div style={style.wrapper}>
+				<div style={style.header}>What We Do</div>
 				<div>
 					{
 						eventData.map(function(data) {
@@ -43,7 +40,7 @@ var WhatWeDo = React.createClass({
 										   event={data.name} 
 							   			   description={data.description}
 							               link={data.link}
-							               style={style} />
+							               style={style.card} />
 							);
 						})
 					}

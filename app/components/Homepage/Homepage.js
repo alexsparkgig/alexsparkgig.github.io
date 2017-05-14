@@ -21,6 +21,14 @@ var colors = {
 	white: 'white',
 }
 
+var gen_header = {
+	color: colors.section,
+	textAlign: 'center',
+	fontFamily: 'Helvetica Neue',
+	margin: '40px',
+	fontSize: '32px'
+}
+
 var general_style = {
 	border: '1px solid #DFE5E9',
 	cta: {
@@ -32,14 +40,51 @@ var general_style = {
 	body: {
 		color: '7A7A7A'
 	},
-	howItWorks: {
-		header: {
-			color: colors.section,
+	whatWeDo: {
+		header: gen_header,
+		wrapper: {
+			width: '100%',
 			textAlign: 'center',
-			fontFamily: 'Helvetica Neue',
-			margin: '40px',
-			fontSize: '32px'
 		},
+		card: {
+			wrapper: {
+				border: '1px solid #DFE5E9',
+				height: 500,
+				width: '35%',
+				borderRadius: 5,
+				margin: '5%',
+				display: 'inline-block'
+			},
+			pic: {
+				backgroundColor: colors.circle_color,
+				width: '100%',
+				height: '60%'
+			},
+			text_wrapper: {
+				marginLeft: 20,
+				height: '40%',
+				textAlign: 'left'
+			},
+			heading: {
+				color: 'black',
+				fontSize: '25px',
+				height: '33%',
+				lineHeight: '300%',
+				fontWeight: '500',
+			},
+			description: {
+				color: colors.section,
+				height: '44%',
+			},
+			cta_text: {
+				color: colors.CTA_buttons,
+				height: '23%',
+				fontWeight: '500',
+			},
+		},
+	},
+	howItWorks: {
+		header: gen_header,
 		wrapper: {
 			display: 'block',
 			width: '100%',
@@ -117,7 +162,7 @@ var HomePage = React.createClass({
 					<iframe src={}></iframe>
 					*/
 				}
-				<WhatWeDo />
+				<WhatWeDo style={general_style.whatWeDo} />
 				<HowItWorks style={general_style.howItWorks} />
 				<OurPastEvents />
 				<Locations />

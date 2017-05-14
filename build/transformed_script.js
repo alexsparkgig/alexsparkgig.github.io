@@ -10155,6 +10155,14 @@ var colors = {
 	white: 'white'
 };
 
+var gen_header = {
+	color: colors.section,
+	textAlign: 'center',
+	fontFamily: 'Helvetica Neue',
+	margin: '40px',
+	fontSize: '32px'
+};
+
 var general_style = {
 	border: '1px solid #DFE5E9',
 	cta: {
@@ -10166,14 +10174,51 @@ var general_style = {
 	body: {
 		color: '7A7A7A'
 	},
-	howItWorks: {
-		header: {
-			color: colors.section,
-			textAlign: 'center',
-			fontFamily: 'Helvetica Neue',
-			margin: '40px',
-			fontSize: '32px'
+	whatWeDo: {
+		header: gen_header,
+		wrapper: {
+			width: '100%',
+			textAlign: 'center'
 		},
+		card: {
+			wrapper: {
+				border: '1px solid #DFE5E9',
+				height: 500,
+				width: '35%',
+				borderRadius: 5,
+				margin: '5%',
+				display: 'inline-block'
+			},
+			pic: {
+				backgroundColor: colors.circle_color,
+				width: '100%',
+				height: '60%'
+			},
+			text_wrapper: {
+				marginLeft: 20,
+				height: '40%',
+				textAlign: 'left'
+			},
+			heading: {
+				color: 'black',
+				fontSize: '25px',
+				height: '33%',
+				lineHeight: '300%',
+				fontWeight: '500'
+			},
+			description: {
+				color: colors.section,
+				height: '44%'
+			},
+			cta_text: {
+				color: colors.CTA_buttons,
+				height: '23%',
+				fontWeight: '500'
+			}
+		}
+	},
+	howItWorks: {
+		header: gen_header,
 		wrapper: {
 			display: 'block',
 			width: '100%',
@@ -10244,7 +10289,7 @@ var HomePage = React.createClass({
 			null,
 			React.createElement(Header, null),
 			React.createElement(Logos, null),
-			React.createElement(WhatWeDo, null),
+			React.createElement(WhatWeDo, { style: general_style.whatWeDo }),
 			React.createElement(HowItWorks, { style: general_style.howItWorks }),
 			React.createElement(OurPastEvents, null),
 			React.createElement(Locations, null),
@@ -10279,6 +10324,8 @@ var howItWorksData = [{
 	link: "event4link",
 	imageLink: "event4imagelink"
 }];
+
+let hello = 5;
 
 var HowItWorks = React.createClass({
 	displayName: 'HowItWorks',
@@ -10515,8 +10562,6 @@ module.exports = Quote;
 var React = __webpack_require__(7);
 var PropTypes = __webpack_require__(58);
 
-var style = {};
-
 var EventCard = React.createClass({
 	displayName: 'EventCard',
 
@@ -10530,26 +10575,35 @@ var EventCard = React.createClass({
 		// this.setState({this.props.link});
 	},
 	render() {
+		var card_styles = this.props.style;
 		return React.createElement(
 			'div',
-			null,
-			React.createElement('div', { style: this.props.style }),
+			{ style: card_styles.wrapper },
 			React.createElement(
 				'div',
-				{ style: this.props.style },
+				{ style: card_styles.pic },
+				'img placeholderasdfasdf'
+			),
+			React.createElement(
+				'div',
+				{ style: card_styles.text_wrapper },
 				React.createElement(
 					'div',
-					{ className: 'heading' },
+					{ className: 'heading',
+						style: card_styles.heading },
 					this.props.event
 				),
 				React.createElement(
 					'div',
-					{ className: 'description' },
+					{ className: 'description',
+						style: card_styles.description },
 					this.props.description
 				),
 				React.createElement(
 					'div',
-					{ className: 'link', onClick: this.seeAvailabilityHander },
+					{ className: 'link',
+						onClick: this.seeAvailabilityHander,
+						style: card_styles.cta_text },
 					'See Availability'
 				)
 			)
@@ -10568,41 +10622,38 @@ var EventCard = __webpack_require__(102);
 
 var eventData = [{
 	name: "Magic Shows",
-	description: "event1",
+	description: "event1 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
 	link: "event1link",
 	imageLink: "event1imagelink"
 }, {
 	name: "Face Painting",
-	description: "event2",
+	description: "event2 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asff",
 	link: "event2link",
 	imageLink: "event2imagelink"
 }, {
 	name: "Balloon Twisting",
-	description: "event3",
+	description: "event3 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
 	link: "event3link",
 	imageLink: "event3imagelink"
 }, {
 	name: "Superhero Shows",
-	description: "event4",
+	description: "event4a; asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
 	link: "event4link",
 	imageLink: "event4imagelink"
 }];
-
-var style = {
-	border: '1px solid black',
-	borderWidth: 1
-};
 
 var WhatWeDo = React.createClass({
 	displayName: 'WhatWeDo',
 
 	render() {
+		var style = this.props.style;
+
 		return React.createElement(
 			'div',
-			{ style: style },
+			{ style: style.wrapper },
 			React.createElement(
-				'h2',
-				null,
+				'div',
+				{ style: style.header },
 				'What We Do'
 			),
 			React.createElement(
@@ -10614,7 +10665,7 @@ var WhatWeDo = React.createClass({
 						event: data.name,
 						description: data.description,
 						link: data.link,
-						style: style });
+						style: style.card });
 				})
 			)
 		);

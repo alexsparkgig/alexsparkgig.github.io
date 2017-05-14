@@ -20,6 +20,8 @@ var howItWorksData = [{
 	}
 ];
 
+let hello = 5;
+
 var HowItWorks = React.createClass({
 	render: function() {
 		var style = this.props.style;
