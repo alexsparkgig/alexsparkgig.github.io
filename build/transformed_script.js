@@ -10191,17 +10191,24 @@ var general_style = {
 				pic_wrapper: {},
 				pic: {
 					backgroundColor: colors.circle_color,
-					margin: '2px'
+					margin: '2px',
+					width: '30%',
+					height: 225,
+					display: 'inline-block',
+					boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)'
 				}
 			},
 			text_section: {
-				text_wrapper: {},
+				text_wrapper: {
+					display: 'inline-block',
+					margin: '5% 0%'
+				},
 				face_pic: {
 					borderRadius: '100%',
 					backgroundColor: colors.circle_color,
 					width: 110,
 					height: 110,
-					boxShadow: '5px 5px 5px #888888'
+					display: 'inline-block'
 				},
 				heading: {
 					color: 'black',
@@ -10584,18 +10591,22 @@ var PastEventReview = React.createClass({
 				),
 				React.createElement(
 					"div",
-					{ style: style_text.heading },
-					"A great show for kids"
-				),
-				React.createElement(
-					"div",
-					{ style: style_text.description },
-					"blahb albh albh heres the review"
-				),
-				React.createElement(
-					"div",
-					{ style: style_text.description },
-					"- person name "
+					{ style: style_text.text_wrapper },
+					React.createElement(
+						"div",
+						{ style: style_text.heading },
+						"A great show for kids"
+					),
+					React.createElement(
+						"div",
+						{ style: style_text.description },
+						"blahb albh albh heres the review"
+					),
+					React.createElement(
+						"div",
+						{ style: style_text.description },
+						"- person name "
+					)
 				)
 			)
 		);

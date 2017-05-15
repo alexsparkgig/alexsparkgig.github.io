@@ -59,19 +59,23 @@ var general_style = {
 				},
 				pic: {
 					backgroundColor: colors.circle_color,
-					margin: '2px'
+					margin: '2px',
+					width: '30%',
+					height: 225,
+					display: 'inline-block',
+					boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)',
 				},
 			},
 			text_section: {
 				text_wrapper: {
 					display: 'inline-block',
+					margin: '5% 0%',
 				},
 				face_pic: {
 					borderRadius: '100%',
 					backgroundColor: colors.circle_color,
 					width: 110,
 					height: 110,
-					boxShadow: '5px 5px 5px #888888',
 					display: 'inline-block',
 				},
 				heading: {
@@ -136,7 +140,6 @@ var general_style = {
 			height: 250,
 			textAlign: 'center',
 			margin: '0% 10%',
-			// marginTop: '50px'
 		},
 		pic: {
 			float: 'left',
@@ -148,7 +151,6 @@ var general_style = {
 			marginLeft: '10%',
 			marginRight: '10%',
 			// boxSizing: 'border-box',
-			// marginRight: 'auto'
 		},
 		steps: {
 			wrapper: {
