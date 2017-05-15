@@ -10163,8 +10163,17 @@ var gen_header = {
 	fontSize: '32px'
 };
 
+var gen_wrapper = {
+	width: '80%',
+	textAlign: 'center',
+	margin: '0% 10%'
+};
+
 var general_style = {
 	border: '1px solid #DFE5E9',
+	container: {
+		textAlign: 'center'
+	},
 	cta: {
 		color: '#53A5E3'
 	},
@@ -10172,14 +10181,45 @@ var general_style = {
 		color: colors.section
 	},
 	body: {
-		color: '7A7A7A'
+		color: '#7A7A7A'
+	},
+	ourPastEvents: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper,
+			pic_section: {
+				pic_wrapper: {},
+				pic: {
+					backgroundColor: colors.circle_color,
+					margin: '2px'
+				}
+			},
+			text_section: {
+				text_wrapper: {},
+				face_pic: {
+					borderRadius: '100%',
+					backgroundColor: colors.circle_color,
+					width: 110,
+					height: 110,
+					boxShadow: '5px 5px 5px #888888'
+				},
+				heading: {
+					color: 'black',
+					fontSize: '25px',
+					height: '33%',
+					lineHeight: '300%',
+					fontWeight: '500'
+				},
+				description: {
+					color: colors.section
+				}
+			}
+
+		}
 	},
 	whatWeDo: {
 		header: gen_header,
-		wrapper: {
-			width: '100%',
-			textAlign: 'center'
-		},
+		wrapper: gen_wrapper,
 		card: {
 			wrapper: {
 				border: '1px solid #DFE5E9',
@@ -10224,7 +10264,7 @@ var general_style = {
 			width: '100%',
 			height: 250,
 			textAlign: 'center',
-			marginTop: '50px'
+			margin: '0% 10%'
 		},
 		pic: {
 			float: 'left',
@@ -10286,12 +10326,12 @@ var HomePage = React.createClass({
 	render: function () {
 		return React.createElement(
 			'div',
-			null,
+			{ style: general_style.container },
 			React.createElement(Header, null),
 			React.createElement(Logos, null),
 			React.createElement(WhatWeDo, { style: general_style.whatWeDo }),
 			React.createElement(HowItWorks, { style: general_style.howItWorks }),
-			React.createElement(OurPastEvents, null),
+			React.createElement(OurPastEvents, { style: general_style.ourPastEvents }),
 			React.createElement(Locations, null),
 			React.createElement(Quote, null)
 		);
@@ -10473,16 +10513,17 @@ var OurPastEvents = React.createClass({
 	displayName: 'OurPastEvents',
 
 	render: function () {
+		var style = this.props.style;
 		return React.createElement(
 			'div',
 			null,
 			React.createElement(
-				'h2',
-				null,
+				'div',
+				{ style: style.header },
 				'Our Past Events'
 			),
-			React.createElement(PastEventReview, null),
-			React.createElement(PastEventReview, null)
+			React.createElement(PastEventReview, { style: style.section }),
+			React.createElement(PastEventReview, { style: style.section })
 		);
 	}
 });
@@ -10495,38 +10536,66 @@ module.exports = OurPastEvents;
 
 var React = __webpack_require__(7);
 
-var style = {
-	"pastEventPicture": {},
-	"picture": {
-		borderRadius: "100%"
-	}
-};
+// var style = {
+// 	"pastEventPicture": {
+
+// 	},
+// 	"picture": {
+// 		borderRadius: "100%"
+// 	},
+// };
 
 var PastEventReview = React.createClass({
 	displayName: "PastEventReview",
 
 	render: function () {
+		var style_wrapper = this.props.style.wrapper;
+		var style_pic = this.props.style.pic_section;
+		var style_text = this.props.style.text_section;
 		return React.createElement(
 			"div",
-			null,
-			React.createElement("div", null),
+			{ style: style_wrapper },
 			React.createElement(
 				"div",
-				null,
+				{ className: "pics", style: style_pic.pic_wrapper },
 				React.createElement(
-					"h3",
-					null,
+					"div",
+					{ style: style_pic.pic },
+					"placeholder pic"
+				),
+				React.createElement(
+					"div",
+					{ style: style_pic.pic },
+					"placeholder pic"
+				),
+				React.createElement(
+					"div",
+					{ style: style_pic.pic },
+					"placeholder pic"
+				)
+			),
+			React.createElement(
+				"div",
+				{ style: style_text.text_wrapper },
+				React.createElement(
+					"div",
+					{ style: style_text.face_pic },
+					"picture placeholder here"
+				),
+				React.createElement(
+					"div",
+					{ style: style_text.heading },
 					"A great show for kids"
 				),
 				React.createElement(
-					"p",
-					null,
+					"div",
+					{ style: style_text.description },
 					"blahb albh albh heres the review"
 				),
 				React.createElement(
-					"p",
-					null,
-					" person name "
+					"div",
+					{ style: style_text.description },
+					"- person name "
 				)
 			)
 		);

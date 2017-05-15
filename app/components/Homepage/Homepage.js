@@ -29,23 +29,68 @@ var gen_header = {
 	fontSize: '32px'
 }
 
+var gen_wrapper = {
+	width: '80%',
+	textAlign: 'center',
+	margin: '0% 10%',
+}
+
 var general_style = {
 	border: '1px solid #DFE5E9',
+	container: {
+		textAlign: 'center'
+	},
 	cta: {
 		color: '#53A5E3'
 	},
 	section: {
-		color: colors.section
+		color: colors.section,
 	},
 	body: {
-		color: '7A7A7A'
+		color: '#7A7A7A',
+	},
+	ourPastEvents: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper,
+			pic_section: {
+				pic_wrapper: {
+
+				},
+				pic: {
+					backgroundColor: colors.circle_color,
+					margin: '2px'
+				},
+			},
+			text_section: {
+				text_wrapper: {
+					display: 'inline-block',
+				},
+				face_pic: {
+					borderRadius: '100%',
+					backgroundColor: colors.circle_color,
+					width: 110,
+					height: 110,
+					boxShadow: '5px 5px 5px #888888',
+					display: 'inline-block',
+				},
+				heading: {
+					color: 'black',
+					fontSize: '25px',
+					height: '33%',
+					lineHeight: '300%',
+					fontWeight: '500',
+				},
+				description: {
+					color: colors.section,
+				}
+			},
+
+		}
 	},
 	whatWeDo: {
 		header: gen_header,
-		wrapper: {
-			width: '100%',
-			textAlign: 'center',
-		},
+		wrapper: gen_wrapper,
 		card: {
 			wrapper: {
 				border: '1px solid #DFE5E9',
@@ -90,7 +135,8 @@ var general_style = {
 			width: '100%',
 			height: 250,
 			textAlign: 'center',
-			marginTop: '50px'
+			margin: '0% 10%',
+			// marginTop: '50px'
 		},
 		pic: {
 			float: 'left',
@@ -151,7 +197,7 @@ var general_style = {
 var HomePage = React.createClass({
 	render: function() {
 		return (
-			<div>
+			<div style={general_style.container}>
 				<Header />
 				<Logos />
 				{
@@ -164,7 +210,7 @@ var HomePage = React.createClass({
 				}
 				<WhatWeDo style={general_style.whatWeDo} />
 				<HowItWorks style={general_style.howItWorks} />
-				<OurPastEvents />
+				<OurPastEvents style={general_style.ourPastEvents} />
 				<Locations />
 				<Quote />
 			</div>
