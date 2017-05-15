@@ -10199,16 +10199,23 @@ var general_style = {
 				}
 			},
 			text_section: {
+				review_wrapper: {
+					margin: '3% 0% 0% 5%',
+					width: '100%',
+					height: 200
+				},
 				text_wrapper: {
-					display: 'inline-block',
-					margin: '5% 0%'
+					margin: '0% 3%',
+					float: 'left',
+					textAlign: 'left'
 				},
 				face_pic: {
 					borderRadius: '100%',
 					backgroundColor: colors.circle_color,
 					width: 110,
 					height: 110,
-					display: 'inline-block'
+					float: 'left',
+					margin: '2% 0%'
 				},
 				heading: {
 					color: 'black',
@@ -10583,7 +10590,7 @@ var PastEventReview = React.createClass({
 			),
 			React.createElement(
 				"div",
-				{ style: style_text.text_wrapper },
+				{ style: style_text.review_wrapper },
 				React.createElement(
 					"div",
 					{ style: style_text.face_pic },

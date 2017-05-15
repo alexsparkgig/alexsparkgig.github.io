@@ -24,7 +24,7 @@ var PastEventReview = React.createClass({
 					<div style={style_pic.pic}>placeholder pic</div>
 					<div style={style_pic.pic}>placeholder pic</div>
 				</div>
-				<div style={style_text.text_wrapper}>
+				<div style={style_text.review_wrapper}>
 					{/*picture: <img src={} />*/}
 					<div style={style_text.face_pic}>picture placeholder here</div>
 					<div style={style_text.text_wrapper}>
