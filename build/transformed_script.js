@@ -10183,6 +10183,16 @@ var general_style = {
 	body: {
 		color: '#7A7A7A'
 	},
+	logos: {
+		wrapper: gen_wrapper,
+		logo_pic: {
+			display: 'inline-block',
+			verticalAlign: 'middle',
+			width: 200,
+			height: '100%',
+			backgroundColor: colors.circle_color
+		}
+	},
 	ourPastEvents: {
 		header: gen_header,
 		section: {
@@ -10342,7 +10352,7 @@ var HomePage = React.createClass({
 			'div',
 			{ style: general_style.container },
 			React.createElement(Header, null),
-			React.createElement(Logos, null),
+			React.createElement(Logos, { style: general_style.logos }),
 			React.createElement(WhatWeDo, { style: general_style.whatWeDo }),
 			React.createElement(HowItWorks, { style: general_style.howItWorks }),
 			React.createElement(OurPastEvents, { style: general_style.ourPastEvents }),
@@ -10502,14 +10512,35 @@ module.exports = Locations;
 
 var React = __webpack_require__(7);
 
+var logoData = [{
+	imageLink: "event1imagelink"
+}, {
+	imageLink: "event2imagelink"
+}, {
+	imageLink: "event3imagelink"
+}, {
+	imageLink: "event4imagelink"
+}, {
+	imageLink: "event5imagelink"
+}];
+
 var Logos = React.createClass({
-	displayName: 'Logos',
+	displayName: "Logos",
 
 	render: function () {
+		var style = this.props.style;
+		style.wrapper.height = 150;
+		style.wrapper.margin = '50px 10%';
 		return React.createElement(
-			'div',
-			null,
-			'Logosz'
+			"div",
+			{ style: style.wrapper },
+			logoData.map(function (data) {
+				return React.createElement(
+					"div",
+					{ style: style.logo_pic },
+					"placeholder"
+				);
+			})
 		);
 	}
 });

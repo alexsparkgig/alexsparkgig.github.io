@@ -49,6 +49,16 @@ var general_style = {
 	body: {
 		color: '#7A7A7A',
 	},
+	logos: {
+		wrapper: gen_wrapper,
+		logo_pic: {
+			display: 'inline-block',
+			verticalAlign: 'middle',
+			width: 200,
+			height: '100%',
+			backgroundColor: colors.circle_color,
+		},
+	},
 	ourPastEvents: {
 		header: gen_header,
 		section: {
@@ -208,7 +218,7 @@ var HomePage = React.createClass({
 		return (
 			<div style={general_style.container}>
 				<Header />
-				<Logos />
+				<Logos style={general_style.logos} />
 				{
 					/*
 					

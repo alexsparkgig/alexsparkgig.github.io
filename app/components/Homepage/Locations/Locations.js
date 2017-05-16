@@ -4,7 +4,7 @@ var Locations = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<h2>Locations we cover</h2>
+				<div>Locations we cover</div>
 				{/*<img src={} />*/}
 			</div>
 		)	
