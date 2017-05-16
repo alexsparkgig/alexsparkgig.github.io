@@ -10496,7 +10496,7 @@ var Locations = React.createClass({
 			'div',
 			null,
 			React.createElement(
-				'h2',
+				'div',
 				null,
 				'Locations we cover'
 			)
@@ -10528,7 +10528,8 @@ var Logos = React.createClass({
 	displayName: "Logos",
 
 	render: function () {
-		var style = this.props.style;
+		var style = JSON.parse(JSON.stringify(this.props.style));;
+
 		style.wrapper.height = 150;
 		style.wrapper.margin = '50px 10%';
 		return React.createElement(
