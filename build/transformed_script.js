@@ -10203,22 +10203,26 @@ let general_style = {
 			// margin: '0% 10%',
 			backgroundColor: "rgb(110, 179, 211)",
 			color: "white",
-			position: "relative"
+			position: "relative",
+			overflow: "hidden"
 		},
 		sparkgig: {
 			wrapper: {
-				width: 150
-
+				width: 200,
+				margin: 10
 			},
 			logo: {
 				backgroundColor: colors.white,
 				borderRadius: "100%",
 				height: 50,
 				width: 50,
-				display: "inline-block"
+				display: "inline-block",
+				margin: 10
 			},
 			text: {
-				display: "inline-block"
+				display: "inline-block",
+				fontSize: 24,
+				transform: "translate(0%, 55%)"
 			}
 		},
 		heading: {
@@ -10239,7 +10243,15 @@ let general_style = {
 		},
 		cta_button: {
 			borderRadius: 5,
-			position: "absolute"
+			position: "absolute",
+			width: 170,
+			height: 40,
+			backgroundColor: "white",
+			top: "60%",
+			left: "50%",
+			transform: "translate(-50%,0%)",
+			color: '#53A5E3',
+			lineHeight: "40px"
 		}
 	},
 	logos: {

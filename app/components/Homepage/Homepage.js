@@ -52,17 +52,18 @@ let general_style = {
 	homePage: {
 		wrapper: {
 			width: '100%',
-			height: 600,
+			height: "100vh",
 			textAlign: 'center',
 			// margin: '0% 10%',
 			backgroundColor: "rgb(110, 179, 211)",
 			color: "white",
 			position: "relative",
+			overflow: "hidden",
 		},
 		sparkgig: {
 			wrapper: {
-				width: 150,
-
+				width: 200,
+				margin: 10,
 			},
 			logo: {
 				backgroundColor: colors.white,
@@ -70,9 +71,12 @@ let general_style = {
 				height: 50,
 				width: 50,
 				display: "inline-block",
+				margin: 10,
 			},
 			text: {
 				display: "inline-block",
+				fontSize: 24,
+				transform: "translate(0%, 55%)",
 			},
 		},
 		heading: {
@@ -94,6 +98,14 @@ let general_style = {
 		cta_button: {
 			borderRadius: 5,
 			position: "absolute",
+			width: 170,
+			height: 40,
+			backgroundColor: "white",
+			top: "60%",
+			left: "50%",
+			transform: "translate(-50%,0%)",
+			color: '#53A5E3',
+			lineHeight: "40px",
 		}
 	},
 	logos: {
