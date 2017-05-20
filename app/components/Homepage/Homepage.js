@@ -21,7 +21,7 @@ var colors = {
 	white: 'white',
 }
 
-var gen_header = {
+let gen_header = {
 	color: colors.section,
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
@@ -29,13 +29,13 @@ var gen_header = {
 	fontSize: '32px'
 }
 
-var gen_wrapper = {
+let gen_wrapper = {
 	width: '80%',
 	textAlign: 'center',
 	margin: '0% 10%',
 }
 
-var general_style = {
+let general_style = {
 	border: '1px solid #DFE5E9',
 	container: {
 		textAlign: 'center'
@@ -48,6 +48,53 @@ var general_style = {
 	},
 	body: {
 		color: '#7A7A7A',
+	},
+	homePage: {
+		wrapper: {
+			width: '100%',
+			height: 600,
+			textAlign: 'center',
+			// margin: '0% 10%',
+			backgroundColor: "rgb(110, 179, 211)",
+			color: "white",
+			position: "relative",
+		},
+		sparkgig: {
+			wrapper: {
+				width: 150,
+
+			},
+			logo: {
+				backgroundColor: colors.white,
+				borderRadius: "100%",
+				height: 50,
+				width: 50,
+				display: "inline-block",
+			},
+			text: {
+				display: "inline-block",
+			},
+		},
+		heading: {
+			fontSize: 44,
+			position: "absolute",
+			width: "100%",
+			top: "25%",
+			left: "50%",
+			transform: "translate(-50%,0%)",
+		},
+		tagline: {
+			fontSize: 24,
+			width: "65%",
+			position: "absolute",
+			top: "40%",
+			left: "50%",
+			transform: "translate(-50%,0%)",
+		},
+		cta_button: {
+			borderRadius: 5,
+			position: "absolute",
+		}
 	},
 	logos: {
 		wrapper: gen_wrapper,
@@ -217,7 +264,7 @@ var HomePage = React.createClass({
 	render: function() {
 		return (
 			<div style={general_style.container}>
-				<Header />
+				<Header style={general_style.homePage} />
 				<Logos style={general_style.logos} />
 				{
 					/*

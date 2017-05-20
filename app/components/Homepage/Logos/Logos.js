@@ -17,9 +17,9 @@ var logoData = [{
 var Logos = React.createClass({
 	render: function() {
 		// deep copy of style prop
-		var style = JSON.parse(JSON.stringify(this.props.style));;
+		var style = JSON.parse(JSON.stringify(this.props.style));
 		style.wrapper.height = 150;
-		style.wrapper.margin = '50px 10%';
+		style.wrapper.margin = '0% 10%';
 
 		return (
 			<div style={style.wrapper}>
@@ -37,5 +37,9 @@ var Logos = React.createClass({
 		)	
 	}
 });
+
+// const styles = {
+
+// };
 
 module.exports = Logos;

@@ -10100,27 +10100,39 @@ var Header = React.createClass({
 		console.log("view experiences");
 	},
 	render: function () {
+		let style = JSON.parse(JSON.stringify(this.props.style));
+		let wrapper_style = style.wrapper;
+		let sparkgig_style = style.sparkgig;
 		return React.createElement(
 			"div",
-			{ style: this.props.style },
+			{ style: style.wrapper },
 			React.createElement(
 				"div",
-				null,
-				"SparkGig"
+				{ style: sparkgig_style.wrapper },
+				React.createElement(
+					"div",
+					{ style: sparkgig_style.logo },
+					"logo"
+				),
+				React.createElement(
+					"div",
+					{ style: sparkgig_style.text },
+					"SparkGig"
+				)
 			),
 			React.createElement(
-				"h1",
-				null,
+				"div",
+				{ style: style.heading },
 				"Stumped on ideas for your event?"
 			),
 			React.createElement(
 				"div",
-				null,
-				"spark gig got u m8"
+				{ style: style.tagline },
+				"Whether it's a blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
 			),
 			React.createElement(
 				"div",
-				{ onClick: this.viewExperiences },
+				{ style: style.cta_button, onClick: this.viewExperiences },
 				"View Experiences"
 			)
 		);
@@ -10155,7 +10167,7 @@ var colors = {
 	white: 'white'
 };
 
-var gen_header = {
+let gen_header = {
 	color: colors.section,
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
@@ -10163,13 +10175,13 @@ var gen_header = {
 	fontSize: '32px'
 };
 
-var gen_wrapper = {
+let gen_wrapper = {
 	width: '80%',
 	textAlign: 'center',
 	margin: '0% 10%'
 };
 
-var general_style = {
+let general_style = {
 	border: '1px solid #DFE5E9',
 	container: {
 		textAlign: 'center'
@@ -10182,6 +10194,53 @@ var general_style = {
 	},
 	body: {
 		color: '#7A7A7A'
+	},
+	homePage: {
+		wrapper: {
+			width: '100%',
+			height: 600,
+			textAlign: 'center',
+			// margin: '0% 10%',
+			backgroundColor: "rgb(110, 179, 211)",
+			color: "white",
+			position: "relative"
+		},
+		sparkgig: {
+			wrapper: {
+				width: 150
+
+			},
+			logo: {
+				backgroundColor: colors.white,
+				borderRadius: "100%",
+				height: 50,
+				width: 50,
+				display: "inline-block"
+			},
+			text: {
+				display: "inline-block"
+			}
+		},
+		heading: {
+			fontSize: 44,
+			position: "absolute",
+			width: "100%",
+			top: "25%",
+			left: "50%",
+			transform: "translate(-50%,0%)"
+		},
+		tagline: {
+			fontSize: 24,
+			width: "65%",
+			position: "absolute",
+			top: "40%",
+			left: "50%",
+			transform: "translate(-50%,0%)"
+		},
+		cta_button: {
+			borderRadius: 5,
+			position: "absolute"
+		}
 	},
 	logos: {
 		wrapper: gen_wrapper,
@@ -10351,7 +10410,7 @@ var HomePage = React.createClass({
 		return React.createElement(
 			'div',
 			{ style: general_style.container },
-			React.createElement(Header, null),
+			React.createElement(Header, { style: general_style.homePage }),
 			React.createElement(Logos, { style: general_style.logos }),
 			React.createElement(WhatWeDo, { style: general_style.whatWeDo }),
 			React.createElement(HowItWorks, { style: general_style.howItWorks }),
@@ -10528,10 +10587,11 @@ var Logos = React.createClass({
 	displayName: "Logos",
 
 	render: function () {
-		var style = JSON.parse(JSON.stringify(this.props.style));;
-
+		// deep copy of style prop
+		var style = JSON.parse(JSON.stringify(this.props.style));
 		style.wrapper.height = 150;
-		style.wrapper.margin = '50px 10%';
+		style.wrapper.margin = '0% 10%';
+
 		return React.createElement(
 			"div",
 			{ style: style.wrapper },
@@ -10545,6 +10605,10 @@ var Logos = React.createClass({
 		);
 	}
 });
+
+// const styles = {
+
+// };
 
 module.exports = Logos;
 
