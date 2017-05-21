@@ -18,6 +18,7 @@ var colors = {
 	circle_color: '#EAEBEE',
 	circle_text: '#797979',
 	CTA_buttons: '#53A5E3',
+	CTA_hover: '#77ABCF',
 	white: 'white',
 }
 
@@ -54,7 +55,6 @@ let general_style = {
 			width: '100%',
 			height: "100vh",
 			textAlign: 'center',
-			// margin: '0% 10%',
 			backgroundColor: "rgb(110, 179, 211)",
 			color: "white",
 			position: "relative",
@@ -94,18 +94,6 @@ let general_style = {
 			top: "40%",
 			left: "50%",
 			transform: "translate(-50%,0%)",
-		},
-		cta_button: {
-			borderRadius: 5,
-			position: "absolute",
-			width: 170,
-			height: 40,
-			backgroundColor: "white",
-			top: "60%",
-			left: "50%",
-			transform: "translate(-50%,0%)",
-			color: '#53A5E3',
-			lineHeight: "40px",
 		}
 	},
 	logos: {
@@ -117,56 +105,6 @@ let general_style = {
 			height: '100%',
 			backgroundColor: colors.circle_color,
 		},
-	},
-	ourPastEvents: {
-		header: gen_header,
-		section: {
-			wrapper: gen_wrapper,
-			pic_section: {
-				pic_wrapper: {
-
-				},
-				pic: {
-					backgroundColor: colors.circle_color,
-					margin: '2px',
-					width: '30%',
-					height: 225,
-					display: 'inline-block',
-					boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)',
-				},
-			},
-			text_section: {
-				review_wrapper: {
-					margin: '3% 0% 0% 5%',
-					width: '100%',
-					height: 200,
-				},
-				text_wrapper: {
-					margin: '0% 3%',
-					float: 'left',
-					textAlign: 'left',
-				},
-				face_pic: {
-					borderRadius: '100%',
-					backgroundColor: colors.circle_color,
-					width: 110,
-					height: 110,
-					float: 'left',
-					margin: '2% 0%'
-				},
-				heading: {
-					color: 'black',
-					fontSize: '25px',
-					height: '33%',
-					lineHeight: '300%',
-					fontWeight: '500',
-				},
-				description: {
-					color: colors.section,
-				}
-			},
-
-		}
 	},
 	whatWeDo: {
 		header: gen_header,
@@ -268,6 +206,56 @@ let general_style = {
 				color: colors.section,
 				fontSize: '20px'	
 			}
+		}
+	},
+	ourPastEvents: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper,
+			pic_section: {
+				pic_wrapper: {
+
+				},
+				pic: {
+					backgroundColor: colors.circle_color,
+					margin: '2px',
+					width: '30%',
+					height: 225,
+					display: 'inline-block',
+					boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)',
+				},
+			},
+			text_section: {
+				review_wrapper: {
+					margin: '3% 0% 0% 5%',
+					width: '100%',
+					height: 200,
+				},
+				text_wrapper: {
+					margin: '0% 3%',
+					float: 'left',
+					textAlign: 'left',
+				},
+				face_pic: {
+					borderRadius: '100%',
+					backgroundColor: colors.circle_color,
+					width: 110,
+					height: 110,
+					float: 'left',
+					margin: '2% 0%'
+				},
+				heading: {
+					color: 'black',
+					fontSize: '25px',
+					height: '33%',
+					lineHeight: '300%',
+					fontWeight: '500',
+				},
+				description: {
+					color: colors.section,
+				}
+			},
+
 		}
 	},
 }

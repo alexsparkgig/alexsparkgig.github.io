@@ -10091,50 +10091,84 @@ module.exports = App;
 
 var React = __webpack_require__(7);
 
-var SparkGigLogo = "";
-var Header = React.createClass({
-	displayName: "Header",
+const CTA_button_color = '#53A5E3';
+const CTA_hover = '#77ABCF';
 
-	viewExperiences: function () {
-		// maybe scroll down to "What we do"?
-		console.log("view experiences");
+let cta_style = {
+	borderRadius: 5,
+	position: "absolute",
+	width: 170,
+	height: 40,
+	backgroundColor: "white",
+	top: "60%",
+	left: "50%",
+	transform: "translate(-50%,0%)",
+	color: '#53A5E3',
+	lineHeight: "40px"
+};
+
+var CTA_button = React.createClass({
+	displayName: 'CTA_button',
+
+	getInitialState: function () {
+		return { hovered: false };
 	},
+	toggleHover: function () {
+		this.setState({ hovered: !this.state.hovered });
+	},
+	viewExperiences: function () {
+		// this change state when hovered
+		// maybe scroll down to "What we do"?
+		console.log("view experiences???");
+	},
+	render: function () {
+		this.state.hovered ? cta_style.color = CTA_hover : cta_style.color = CTA_button_color;
+		return React.createElement(
+			'div',
+			{ style: cta_style,
+				onClick: this.viewExperiences,
+				onMouseEnter: this.toggleHover,
+				onMouseLeave: this.toggleHover },
+			'View Experiences'
+		);
+	}
+});
+
+var Header = React.createClass({
+	displayName: 'Header',
+
 	render: function () {
 		let style = JSON.parse(JSON.stringify(this.props.style));
 		let wrapper_style = style.wrapper;
 		let sparkgig_style = style.sparkgig;
 		return React.createElement(
-			"div",
+			'div',
 			{ style: style.wrapper },
 			React.createElement(
-				"div",
+				'div',
 				{ style: sparkgig_style.wrapper },
 				React.createElement(
-					"div",
+					'div',
 					{ style: sparkgig_style.logo },
-					"logo"
+					'logo'
 				),
 				React.createElement(
-					"div",
+					'div',
 					{ style: sparkgig_style.text },
-					"SparkGig"
+					'SparkGig'
 				)
 			),
 			React.createElement(
-				"div",
+				'div',
 				{ style: style.heading },
-				"Stumped on ideas for your event?"
+				'Stumped on ideas for your event?'
 			),
 			React.createElement(
-				"div",
+				'div',
 				{ style: style.tagline },
-				"Whether it's a blah blah blah blah blah blah blah blah blah blah blah blah blah blah "
+				'Whether it\'s a blah blah blah blah blah blah blah blah blah blah blah blah blah blah '
 			),
-			React.createElement(
-				"div",
-				{ style: style.cta_button, onClick: this.viewExperiences },
-				"View Experiences"
-			)
+			React.createElement(CTA_button, { style: style.cta_button })
 		);
 	}
 });
@@ -10164,6 +10198,7 @@ var colors = {
 	circle_color: '#EAEBEE',
 	circle_text: '#797979',
 	CTA_buttons: '#53A5E3',
+	CTA_hover: '#77ABCF',
 	white: 'white'
 };
 
@@ -10198,9 +10233,8 @@ let general_style = {
 	homePage: {
 		wrapper: {
 			width: '100%',
-			height: 600,
+			height: "100vh",
 			textAlign: 'center',
-			// margin: '0% 10%',
 			backgroundColor: "rgb(110, 179, 211)",
 			color: "white",
 			position: "relative",
@@ -10240,18 +10274,6 @@ let general_style = {
 			top: "40%",
 			left: "50%",
 			transform: "translate(-50%,0%)"
-		},
-		cta_button: {
-			borderRadius: 5,
-			position: "absolute",
-			width: 170,
-			height: 40,
-			backgroundColor: "white",
-			top: "60%",
-			left: "50%",
-			transform: "translate(-50%,0%)",
-			color: '#53A5E3',
-			lineHeight: "40px"
 		}
 	},
 	logos: {
@@ -10262,54 +10284,6 @@ let general_style = {
 			width: 200,
 			height: '100%',
 			backgroundColor: colors.circle_color
-		}
-	},
-	ourPastEvents: {
-		header: gen_header,
-		section: {
-			wrapper: gen_wrapper,
-			pic_section: {
-				pic_wrapper: {},
-				pic: {
-					backgroundColor: colors.circle_color,
-					margin: '2px',
-					width: '30%',
-					height: 225,
-					display: 'inline-block',
-					boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)'
-				}
-			},
-			text_section: {
-				review_wrapper: {
-					margin: '3% 0% 0% 5%',
-					width: '100%',
-					height: 200
-				},
-				text_wrapper: {
-					margin: '0% 3%',
-					float: 'left',
-					textAlign: 'left'
-				},
-				face_pic: {
-					borderRadius: '100%',
-					backgroundColor: colors.circle_color,
-					width: 110,
-					height: 110,
-					float: 'left',
-					margin: '2% 0%'
-				},
-				heading: {
-					color: 'black',
-					fontSize: '25px',
-					height: '33%',
-					lineHeight: '300%',
-					fontWeight: '500'
-				},
-				description: {
-					color: colors.section
-				}
-			}
-
 		}
 	},
 	whatWeDo: {
@@ -10411,6 +10385,54 @@ let general_style = {
 				color: colors.section,
 				fontSize: '20px'
 			}
+		}
+	},
+	ourPastEvents: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper,
+			pic_section: {
+				pic_wrapper: {},
+				pic: {
+					backgroundColor: colors.circle_color,
+					margin: '2px',
+					width: '30%',
+					height: 225,
+					display: 'inline-block',
+					boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)'
+				}
+			},
+			text_section: {
+				review_wrapper: {
+					margin: '3% 0% 0% 5%',
+					width: '100%',
+					height: 200
+				},
+				text_wrapper: {
+					margin: '0% 3%',
+					float: 'left',
+					textAlign: 'left'
+				},
+				face_pic: {
+					borderRadius: '100%',
+					backgroundColor: colors.circle_color,
+					width: 110,
+					height: 110,
+					float: 'left',
+					margin: '2% 0%'
+				},
+				heading: {
+					color: 'black',
+					fontSize: '25px',
+					height: '33%',
+					lineHeight: '300%',
+					fontWeight: '500'
+				},
+				description: {
+					color: colors.section
+				}
+			}
+
 		}
 	}
 };
