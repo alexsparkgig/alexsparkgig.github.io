@@ -10339,26 +10339,19 @@ let general_style = {
 			float: 'left',
 			borderRadius: '25px',
 			backgroundColor: colors.circle_color,
-			width: 300,
+			width: "25%",
 			height: '80%',
 			display: 'inline-block',
-			marginLeft: '10%',
-			marginRight: '10%'
+			margin: '0% 5%'
 		},
 		steps: {
 			wrapper: {
 				float: 'left',
 				height: '80%',
-				// width: '40%',
+				width: '40%',
 				display: 'inline-block',
-				boxSizing: 'border-box',
-				// marginRight: 'auto',
-				marginLeft: '5%'
+				position: 'relative'
 			},
-			// display: 'flex',
-			// justifyContent: 'center',
-			// alignItems: 'center'
-			// border: '1px solid #DFE5E9',
 			circle: {
 				backgroundColor: colors.circle_color,
 				color: colors.circle_text,
@@ -10369,13 +10362,20 @@ let general_style = {
 				lineHeight: '50px',
 				fontSize: '150%',
 				display: 'inline-block',
-				verticalAlign: 'top'
+				position: 'absolute',
+				top: '50%',
+				left: '0%',
+				transform: 'translate(0%, -50%)'
 			},
 			text_wrapper: {
 				display: 'inline-block',
 				marginLeft: '30px',
 				height: 75,
-				textAlign: 'left'
+				textAlign: 'left',
+				position: 'absolute',
+				top: '50%',
+				left: '15%',
+				transform: 'translate(0%, -50%)'
 			},
 			heading: {
 				color: 'black',
