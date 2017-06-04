@@ -10369,7 +10369,6 @@ let general_style = {
 			},
 			text_wrapper: {
 				display: 'inline-block',
-				marginLeft: '30px',
 				height: 75,
 				textAlign: 'left',
 				position: 'absolute',
@@ -10757,15 +10756,121 @@ module.exports = PastEventReview;
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(7);
+// var mandrill = require('node-mandrill')('<Your Api Key Here>');
 
 var Quote = React.createClass({
-	displayName: 'Quote',
+	displayName: "Quote",
+
+	getInitialState: function () {
+		return {
+			name: "",
+			date: "",
+			duration: "",
+			num_guests: "",
+			postal_code: "",
+			email: "",
+			anything_else: ""
+		};
+	},
+	handleChange: function (event) {
+		const targ = event.target;
+		const value = targ.value;
+		const name = targ.name;
+		console.log(value);
+		console.log(name);
+		this.setState({ [name]: value });
+	},
+	sendMail: function () {
+		//send an e-mail to sparkgig
+		// mandrill('/messages/send', {
+		//     message: {
+		//         to: [{email: 'hello@sparkgig.com', name: 'N/A'}],
+		//         from_email: 'you@domain.com',
+		//         subject: "Sparkgig Email form",
+		//         text: ""
+		//     }
+		// }, function(error, response) {
+		//     //uh oh, there was an error
+		//     if (error) console.log( JSON.stringify(error) );
+		//     //everything's good, lets see what mandrill said
+		//     else console.log(response);
+		// });
+	},
 
 	render: function () {
 		return React.createElement(
-			'div',
-			null,
-			'Quote'
+			"form",
+			{ action: this.sendMail },
+			React.createElement(
+				"label",
+				null,
+				"Get a Quote",
+				React.createElement("br", null)
+			),
+			React.createElement(
+				"label",
+				null,
+				"Name:",
+				React.createElement("input", { type: "text", name: "name",
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement("br", null)
+			),
+			React.createElement(
+				"label",
+				null,
+				"Date of Event:",
+				React.createElement("input", { type: "text", name: "date",
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement("br", null)
+			),
+			React.createElement(
+				"label",
+				null,
+				"Duration:",
+				React.createElement("input", { type: "text", name: "duration",
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement("br", null)
+			),
+			React.createElement(
+				"label",
+				null,
+				"# of Guests:",
+				React.createElement("input", { type: "text", name: "num_guests",
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement("br", null)
+			),
+			React.createElement(
+				"label",
+				null,
+				"Postal Code of Venue",
+				React.createElement("input", { type: "text", name: "postal_code",
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement("br", null)
+			),
+			React.createElement(
+				"label",
+				null,
+				"Email:",
+				React.createElement("input", { type: "text", name: "email",
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement("br", null)
+			),
+			React.createElement(
+				"label",
+				null,
+				"Anything else we should know?",
+				React.createElement("input", { type: "text", name: "anything_else",
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement("br", null)
+			),
+			React.createElement("input", { type: "submit", value: "Submit" })
 		);
 	}
 });

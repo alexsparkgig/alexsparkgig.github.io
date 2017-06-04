@@ -189,7 +189,6 @@ let general_style = {
 			},
 			text_wrapper: {
 				display: 'inline-block',
-				// marginLeft: '30px',
 				height: 75,
 				textAlign: 'left',
 				position: 'absolute',
