@@ -4,6 +4,7 @@ var ReactDOM = require('react-dom');
 // var Navigation = require('./Navigation.js');
 var Header = require('./Heading.js');
 var WhatWeDo = require('./WhatWeDo/WhatWeDo.js');
+var SparkgigAdvantage = require('./SparkgigAdvantage/SparkgigAdvantage.js');
 var HowItWorks = require('./HowItWorks/HowItWorks.js');
 var OurPastEvents = require('./OurPastEvents/OurPastEvents.js');
 var Locations = require('./Locations/Locations.js');
@@ -34,6 +35,43 @@ let gen_wrapper = {
 	width: '80%',
 	textAlign: 'center',
 	margin: '0% 10%',
+}
+
+let gen_card = {
+	wrapper: {
+		border: '1px solid #DFE5E9',
+		height: 400,
+		width: '35%',
+		borderRadius: 5,
+		margin: '5%',
+		display: 'inline-block'
+	},
+	pic: {
+		backgroundColor: colors.circle_color,
+		width: '100%',
+		height: '60%'
+	},
+	text_wrapper: {
+		marginLeft: 20,
+		height: '40%',
+		textAlign: 'left',
+	},
+	heading: {
+		color: 'black',
+		fontSize: '25px',
+		height: '33%',
+		lineHeight: '300%',
+		fontWeight: '500',
+	},
+	description: {
+		color: colors.section,
+		height: '44%',
+	},
+	cta_text: {
+		color: colors.CTA_buttons,
+		height: '23%',
+		fontWeight: '500',
+	},
 }
 
 let general_style = {
@@ -113,42 +151,12 @@ let general_style = {
 			height: 500,
 			width: '80%',
 		},
-		card: {
-			wrapper: {
-				border: '1px solid #DFE5E9',
-				height: 400,
-				width: '35%',
-				borderRadius: 5,
-				margin: '5%',
-				display: 'inline-block'
-			},
-			pic: {
-				backgroundColor: colors.circle_color,
-				width: '100%',
-				height: '60%'
-			},
-			text_wrapper: {
-				marginLeft: 20,
-				height: '40%',
-				textAlign: 'left',
-			},
-			heading: {
-				color: 'black',
-				fontSize: '25px',
-				height: '33%',
-				lineHeight: '300%',
-				fontWeight: '500',
-			},
-			description: {
-				color: colors.section,
-				height: '44%',
-			},
-			cta_text: {
-				color: colors.CTA_buttons,
-				height: '23%',
-				fontWeight: '500',
-			},
-		},
+		card: gen_card,
+	},
+	sparkgigAdvantage: {
+		header: gen_header,
+		wrapper: gen_wrapper,
+		card: gen_card,
 	},
 	howItWorks: {
 		header: gen_header,
@@ -269,6 +277,7 @@ var HomePage = React.createClass({
 				<Header style={general_style.homePage} />
 				<Logos style={general_style.logos} />
 				<WhatWeDo style={general_style.whatWeDo} />
+				<SparkgigAdvantage style={general_style.sparkgigAdvantage} />
 				<HowItWorks style={general_style.howItWorks} />
 				<OurPastEvents style={general_style.ourPastEvents} />
 				<Locations />
