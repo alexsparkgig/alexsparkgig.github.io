@@ -3,12 +3,13 @@ var ReactDOM = require('react-dom');
 
 // var Navigation = require('./Navigation.js');
 var Header = require('./Heading.js');
+var Logos = require('./Logos/Logos.js');
 var WhatWeDo = require('./WhatWeDo/WhatWeDo.js');
 var SparkgigAdvantage = require('./SparkgigAdvantage/SparkgigAdvantage.js');
 var HowItWorks = require('./HowItWorks/HowItWorks.js');
 var OurPastEvents = require('./OurPastEvents/OurPastEvents.js');
+var OurPerformers = require('./OurPerformers/OurPerformers.js');
 var Locations = require('./Locations/Locations.js');
-var Logos = require('./Logos/Logos.js');
 var Quote = require('./Quote/Quote.js');
 
 
@@ -72,6 +73,37 @@ let gen_card = {
 		height: '23%',
 		fontWeight: '500',
 	},
+}
+
+let gen_text_section = {
+	review_wrapper: {
+		margin: '3% 0% 0% 5%',
+		width: '100%',
+		height: 200,
+	},
+	text_wrapper: {
+		margin: '0% 3%',
+		float: 'left',
+		textAlign: 'left',
+	},
+	face_pic: {
+		borderRadius: '100%',
+		backgroundColor: colors.circle_color,
+		width: 110,
+		height: 110,
+		float: 'left',
+		margin: '2% 0%'
+	},
+	heading: {
+		color: 'black',
+		fontSize: '25px',
+		height: '33%',
+		lineHeight: '300%',
+		fontWeight: '500',
+	},
+	description: {
+		color: colors.section,
+	}
 }
 
 let general_style = {
@@ -221,51 +253,32 @@ let general_style = {
 		header: gen_header,
 		section: {
 			wrapper: gen_wrapper,
-			pic_section: {
-				pic_wrapper: {
-
-				},
-				pic: {
-					backgroundColor: colors.circle_color,
-					margin: '2px',
-					width: '30%',
-					height: 225,
-					display: 'inline-block',
-					boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)',
-				},
+			pic: {
+				backgroundColor: colors.circle_color,
+				margin: '2px',
+				width: '30%',
+				height: 225,
+				display: 'inline-block',
+				boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)',
 			},
-			text_section: {
-				review_wrapper: {
-					margin: '3% 0% 0% 5%',
-					width: '100%',
-					height: 200,
-				},
-				text_wrapper: {
-					margin: '0% 3%',
-					float: 'left',
-					textAlign: 'left',
-				},
-				face_pic: {
-					borderRadius: '100%',
-					backgroundColor: colors.circle_color,
-					width: 110,
-					height: 110,
-					float: 'left',
-					margin: '2% 0%'
-				},
-				heading: {
-					color: 'black',
-					fontSize: '25px',
-					height: '33%',
-					lineHeight: '300%',
-					fontWeight: '500',
-				},
-				description: {
-					color: colors.section,
-				}
-			},
-
+			text_section: gen_text_section,
 		}
+	},
+	ourPerformers: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper,
+			pic: {
+				backgroundColor: colors.circle_color,
+				margin: '2px',
+				width: 125,
+				height: 100,
+				display: 'inline-block',
+				boxShadow: '0px 5px 10px rgba(115, 114, 114, 0.16)',
+				float: 'left',
+			},
+			text_section: gen_text_section,
+		},
 	},
 }
 
@@ -279,6 +292,7 @@ var HomePage = React.createClass({
 				<SparkgigAdvantage style={general_style.sparkgigAdvantage} />
 				<HowItWorks style={general_style.howItWorks} />
 				<OurPastEvents style={general_style.ourPastEvents} />
+				<OurPerformers style={general_style.ourPerformers} />
 				<Locations />
 				<Quote />
 			</div>
