@@ -31,6 +31,8 @@ var WhatWeDo = React.createClass({
 		return (
 			<div style={style.wrapper}>
 				<div style={style.header}>What We Do</div>
+				{/*video here*/}
+				<iframe style={style.video} src={'https://www.youtube.com/embed/vFUaVhvfdLA'} />
 				<div>
 					{
 						eventData.map(function(data) {

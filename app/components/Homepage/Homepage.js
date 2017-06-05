@@ -80,10 +80,10 @@ let general_style = {
 			},
 		},
 		heading: {
-			fontSize: 44,
+			fontSize: 40,
 			position: "absolute",
-			width: "100%",
-			top: "25%",
+			width: "60%",
+			top: "20%",
 			left: "50%",
 			transform: "translate(-50%,0%)",
 		},
@@ -109,10 +109,14 @@ let general_style = {
 	whatWeDo: {
 		header: gen_header,
 		wrapper: gen_wrapper,
+		video: {
+			height: 500,
+			width: '80%',
+		},
 		card: {
 			wrapper: {
 				border: '1px solid #DFE5E9',
-				height: 500,
+				height: 400,
 				width: '35%',
 				borderRadius: 5,
 				margin: '5%',
@@ -264,14 +268,6 @@ var HomePage = React.createClass({
 			<div style={general_style.container}>
 				<Header style={general_style.homePage} />
 				<Logos style={general_style.logos} />
-				{
-					/*
-					
-
-					videos:
-					<iframe src={}></iframe>
-					*/
-				}
 				<WhatWeDo style={general_style.whatWeDo} />
 				<HowItWorks style={general_style.howItWorks} />
 				<OurPastEvents style={general_style.ourPastEvents} />

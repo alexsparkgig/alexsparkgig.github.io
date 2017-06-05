@@ -10100,7 +10100,7 @@ let cta_style = {
 	width: 170,
 	height: 40,
 	backgroundColor: "white",
-	top: "60%",
+	top: "50%",
 	left: "50%",
 	transform: "translate(-50%,0%)",
 	color: '#53A5E3',
@@ -10161,12 +10161,12 @@ var Header = React.createClass({
 			React.createElement(
 				'div',
 				{ style: style.heading },
-				'Stumped on ideas for your event?'
+				'Instantly book amazing performers for a fraction of the cost'
 			),
 			React.createElement(
 				'div',
 				{ style: style.tagline },
-				'Whether it\'s a blah blah blah blah blah blah blah blah blah blah blah blah blah blah '
+				'Whether it\'s a simple hoiday office party or birthday'
 			),
 			React.createElement(CTA_button, { style: style.cta_button })
 		);
@@ -10260,10 +10260,10 @@ let general_style = {
 			}
 		},
 		heading: {
-			fontSize: 44,
+			fontSize: 40,
 			position: "absolute",
-			width: "100%",
-			top: "25%",
+			width: "60%",
+			top: "20%",
 			left: "50%",
 			transform: "translate(-50%,0%)"
 		},
@@ -10289,10 +10289,14 @@ let general_style = {
 	whatWeDo: {
 		header: gen_header,
 		wrapper: gen_wrapper,
+		video: {
+			height: 500,
+			width: '80%'
+		},
 		card: {
 			wrapper: {
 				border: '1px solid #DFE5E9',
-				height: 500,
+				height: 400,
 				width: '35%',
 				borderRadius: 5,
 				margin: '5%',
@@ -10480,8 +10484,6 @@ var howItWorksData = [{
 	link: "event4link",
 	imageLink: "event4imagelink"
 }];
-
-let hello = 5;
 
 var HowItWorks = React.createClass({
 	displayName: 'HowItWorks',
@@ -10978,6 +10980,7 @@ var WhatWeDo = React.createClass({
 				{ style: style.header },
 				'What We Do'
 			),
+			React.createElement('iframe', { style: style.video, src: 'https://www.youtube.com/embed/vFUaVhvfdLA' }),
 			React.createElement(
 				'div',
 				null,

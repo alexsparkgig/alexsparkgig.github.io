@@ -9,7 +9,7 @@ let cta_style = {
 	width: 170,
 	height: 40,
 	backgroundColor: "white",
-	top: "60%",
+	top: "50%",
 	left: "50%",
 	transform: "translate(-50%,0%)",
 	color: '#53A5E3',
@@ -49,10 +49,9 @@ var Header = React.createClass({
 					<div style={sparkgig_style.logo}>logo</div>
 					<div style={sparkgig_style.text}>SparkGig</div>
 				</div>
-				<div style={style.heading}>Stumped on ideas for your event?</div>
-				<div style={style.tagline}>Whether it's a blah blah blah blah blah blah blah blah blah blah blah blah blah blah </div>
+				<div style={style.heading}>Instantly book amazing performers for a fraction of the cost</div>
+				<div style={style.tagline}>Whether it's a simple hoiday office party or birthday</div>
 				<CTA_button style={style.cta_button} />
-				{/*<div style={style.cta_button} onClick={this.viewExperiences}>View Experiences</div>*/}
 			</div>
 		);
 	}
