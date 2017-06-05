@@ -165,7 +165,7 @@ let general_style = {
 			width: '100%',
 			height: 250,
 			textAlign: 'center',
-			margin: '0% 10%',
+			margin: '0% 20%',
 		},
 		pic: {
 			float: 'left',
@@ -174,7 +174,6 @@ let general_style = {
 			width: "25%",
 			height: '80%',
 			display: 'inline-block',
-			margin: '0% 5%',
 		},
 		steps: {
 			wrapper: {
