@@ -22,5 +22,10 @@ module.exports = {
 		filename: 'transformed_script.js',
 		path: __dirname + '/build'
 	},
+	node: {
+		fs: 'empty',
+		tls: 'empty',
+		net: 'empty',
+	},
 	plugins: [HTMLWebpackPluginConfig]
 };

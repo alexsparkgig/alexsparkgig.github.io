@@ -1,5 +1,5 @@
 var React = require('react');
-// var mandrill = require('node-mandrill')('<Your Api Key Here>');
+var mandrill = require('node-mandrill')('64a5807f338a0c414d06a0bbcdbf5822-us3');
 
 var Quote = React.createClass({
 	getInitialState: function() {
@@ -23,26 +23,28 @@ var Quote = React.createClass({
 	},
 	sendMail: function() {
 		//send an e-mail to sparkgig
-		// mandrill('/messages/send', {
-		//     message: {
-		//         to: [{email: 'hello@sparkgig.com', name: 'N/A'}],
-		//         from_email: 'you@domain.com',
-		//         subject: "Sparkgig Email form",
-		//         text: ""
-		//     }
-		// }, function(error, response) {
-		//     //uh oh, there was an error
-		//     if (error) console.log( JSON.stringify(error) );
-		//     //everything's good, lets see what mandrill said
-		//     else console.log(response);
-		// });
+		mandrill('/messages/send', {
+		    message: {
+		        to: [{email: 'hello@sparkgig.com', name: 'N/A'}],
+		        from_email: 'calvinchan@gmail.com', // get this from form
+		        subject: "Sparkgig Email form",
+		        text: "???"
+		    }
+		}, function(error, response) {
+		    //uh oh, there was an error
+		    if (error) console.log( JSON.stringify(error) );
+		    //everything's good, lets see what mandrill said
+		    else console.log(response);
+		});
 	},
 
 	render: function() {
 		return (
+			// take them to the quote/performer page?
 			<form action={this.sendMail}>
 				<label>
 					Get a Quote<br/>
+					See pricing here instantly<br/>
 				</label>
 				<label>
 					Name:

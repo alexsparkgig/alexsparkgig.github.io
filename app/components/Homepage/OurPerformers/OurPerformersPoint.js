@@ -18,8 +18,8 @@ var PastEventReview = React.createClass({
 				<div style={style_pic}>placeholder pic</div>
 				<div style={style_text.review_wrapper}>
 					<div style={style_text.text_wrapper}>
-						<div style={style_text.heading}>A great show for kids</div>
-						<div style={style_text.description}>blahb albh albh heres the review</div>
+						<div style={style_text.heading}>{this.props.header}</div>
+						<div style={style_text.description}>{this.props.description}</div>
 						<div style={style_text.description}>- person name </div>
 					</div>
 				</div>
