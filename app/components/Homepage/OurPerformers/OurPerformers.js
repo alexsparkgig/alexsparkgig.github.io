@@ -32,9 +32,11 @@ var OurPerformers = React.createClass({
 			<div>
 				<div style={style.header}>Our Performers</div>
 				{
-					ourPerformersData.map(function(content) {
+					ourPerformersData.map(function(content, i) {
 						return (
-							<OurPerformersPoint style={style.section}
+							<OurPerformersPoint key={i}
+												number={i+1}
+												style={style.section}
 												header={content.header}
 												text={content.description} />
 						)

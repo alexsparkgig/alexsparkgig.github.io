@@ -52645,6 +52645,28 @@ module.exports = PastEventReview;
 var React = __webpack_require__(13);
 var OurPerformersPoint = __webpack_require__(291);
 
+var ourPerformersData = [{
+	header: "5+ years of experience",
+	description: "Our Sparkgig performers are talented and backed with years of experience. From dozens to hundreds of gigs, they have the skills to wow your guests!",
+	link: "event1link",
+	imageLink: "event1imagelink"
+}, {
+	header: "Passionate about Performing",
+	description: "Our Sparkgig performers love what they do. Their goal is to create ever lasting memories with your guests and having fun doing what they love. Our performers care and do everything they can to make your event perfect.",
+	link: "event2link",
+	imageLink: "event2imagelink"
+}, {
+	header: "Fully Background checked and qualified",
+	description: "All of our Sparkgig performers have been background checked. Whether they’re kids, adults, seniors, we ensure your performers are safe and qualified to work with the people that matter to you.",
+	link: "event3link",
+	imageLink: "event3imagelink"
+}, {
+	header: "Friendly, energetic and amazing",
+	description: "Not only are our performers great at what they do, they also have amazing personalities! They love working with people and truly bring the fun to your event!",
+	link: "event4link",
+	imageLink: "event4imagelink"
+}];
+
 var OurPerformers = React.createClass({
 	displayName: 'OurPerformers',
 
@@ -52658,10 +52680,13 @@ var OurPerformers = React.createClass({
 				{ style: style.header },
 				'Our Performers'
 			),
-			React.createElement(OurPerformersPoint, { style: style.section }),
-			React.createElement(OurPerformersPoint, { style: style.section }),
-			React.createElement(OurPerformersPoint, { style: style.section }),
-			React.createElement(OurPerformersPoint, { style: style.section })
+			ourPerformersData.map(function (content, i) {
+				return React.createElement(OurPerformersPoint, { key: i,
+					number: i + 1,
+					style: style.section,
+					header: content.header,
+					text: content.description });
+			})
 		);
 	}
 });
@@ -52681,22 +52706,16 @@ var PastEventReview = React.createClass({
 		let style_wrapper = JSON.parse(JSON.stringify(this.props.style.wrapper));
 		let style_pic = JSON.parse(JSON.stringify(this.props.style.pic));
 		let style_text = JSON.parse(JSON.stringify(this.props.style.text_section));
-		style_wrapper.marginBottom = '5%';
 		style_wrapper.overflow = 'auto';
 		style_pic.float = 'left';
 		style_text.review_wrapper.float = 'left';
-		style_text.review_wrapper.width = '50%';
-		style_text.review_wrapper.height = 100;
+		style_text.review_wrapper.width = '90%';
+		style_text.review_wrapper.height = 150;
 		style_text.review_wrapper.margin = '0% 5%';
 
 		return React.createElement(
 			'div',
 			{ style: style_wrapper },
-			React.createElement(
-				'div',
-				{ style: style_pic },
-				'placeholder pic'
-			),
 			React.createElement(
 				'div',
 				{ style: style_text.review_wrapper },
@@ -52706,17 +52725,14 @@ var PastEventReview = React.createClass({
 					React.createElement(
 						'div',
 						{ style: style_text.heading },
-						'A great show for kids'
+						this.props.number,
+						' ',
+						this.props.header
 					),
 					React.createElement(
 						'div',
 						{ style: style_text.description },
-						'blahb albh albh heres the review'
-					),
-					React.createElement(
-						'div',
-						{ style: style_text.description },
-						'- person name '
+						this.props.text
 					)
 				)
 			)
@@ -52773,79 +52789,84 @@ var Quote = React.createClass({
 	},
 
 	render: function () {
-		return React.createElement(
-			'form',
-			{ action: this.sendMail },
+		return (
+			// take them to the quote/performer page?
 			React.createElement(
-				'label',
-				null,
-				'Get a Quote',
-				React.createElement('br', null)
-			),
-			React.createElement(
-				'label',
-				null,
-				'Name:',
-				React.createElement('input', { type: 'text', name: 'name',
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement('br', null)
-			),
-			React.createElement(
-				'label',
-				null,
-				'Date of Event:',
-				React.createElement('input', { type: 'text', name: 'date',
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement('br', null)
-			),
-			React.createElement(
-				'label',
-				null,
-				'Duration:',
-				React.createElement('input', { type: 'text', name: 'duration',
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement('br', null)
-			),
-			React.createElement(
-				'label',
-				null,
-				'# of Guests:',
-				React.createElement('input', { type: 'text', name: 'num_guests',
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement('br', null)
-			),
-			React.createElement(
-				'label',
-				null,
-				'Postal Code of Venue',
-				React.createElement('input', { type: 'text', name: 'postal_code',
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement('br', null)
-			),
-			React.createElement(
-				'label',
-				null,
-				'Email:',
-				React.createElement('input', { type: 'text', name: 'email',
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement('br', null)
-			),
-			React.createElement(
-				'label',
-				null,
-				'Anything else we should know?',
-				React.createElement('input', { type: 'text', name: 'anything_else',
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement('br', null)
-			),
-			React.createElement('input', { type: 'submit', value: 'Submit' })
+				'form',
+				{ action: this.sendMail },
+				React.createElement(
+					'label',
+					null,
+					'Get a Quote',
+					React.createElement('br', null),
+					'See pricing here instantly',
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'label',
+					null,
+					'Name:',
+					React.createElement('input', { type: 'text', name: 'name',
+						value: this.state.value,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'label',
+					null,
+					'Date of Event:',
+					React.createElement('input', { type: 'text', name: 'date',
+						value: this.state.value,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'label',
+					null,
+					'Duration:',
+					React.createElement('input', { type: 'text', name: 'duration',
+						value: this.state.value,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'label',
+					null,
+					'# of Guests:',
+					React.createElement('input', { type: 'text', name: 'num_guests',
+						value: this.state.value,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'label',
+					null,
+					'Postal Code of Venue',
+					React.createElement('input', { type: 'text', name: 'postal_code',
+						value: this.state.value,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'label',
+					null,
+					'Email:',
+					React.createElement('input', { type: 'text', name: 'email',
+						value: this.state.value,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'label',
+					null,
+					'Anything else we should know?',
+					React.createElement('input', { type: 'text', name: 'anything_else',
+						value: this.state.value,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement('input', { type: 'submit', value: 'Submit' })
+			)
 		);
 	}
 });
