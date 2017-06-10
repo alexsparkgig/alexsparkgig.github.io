@@ -282,8 +282,12 @@ let general_style = {
 	},
 	locations: {
 		header: gen_header,
-		section: {
-			wrapper: gen_wrapper,
+		wrapper: gen_wrapper,
+		map: {
+			width: '80%',
+			height: 400,
+			margin: '0% 10%',
+			backgroundColor: colors.circle_color,
 		},
 	},
 	quote: {

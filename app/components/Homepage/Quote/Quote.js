@@ -19,10 +19,11 @@ var Quote = React.createClass({
 		this.setState({ [name]: value })
 	},
 	render: function() {
+		let style = this.props.style;
 		return (
 			<form action="https://formspree.io/hello@sparkgig.com" method="POST">
+				<label style={style.header}>Get a Quote</label>
 				<label>
-					Get a Quote<br/>
 					See pricing here instantly<br/>
 				</label>
 				<label>
