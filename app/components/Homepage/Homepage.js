@@ -280,6 +280,18 @@ let general_style = {
 			text_section: gen_text_section,
 		},
 	},
+	locations: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper,
+		},
+	},
+	quote: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper,
+		},
+	},
 }
 
 var HomePage = React.createClass({
@@ -293,8 +305,8 @@ var HomePage = React.createClass({
 				<HowItWorks style={general_style.howItWorks} />
 				<OurPastEvents style={general_style.ourPastEvents} />
 				<OurPerformers style={general_style.ourPerformers} />
-				<Locations />
-				<Quote />
+				<Locations style={general_style.locations} />
+				<Quote style={general_style.quote} />
 			</div>
 		)
 	}

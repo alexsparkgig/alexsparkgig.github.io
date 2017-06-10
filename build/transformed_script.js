@@ -39014,11 +39014,7 @@ var EventCard = React.createClass({
 		return React.createElement(
 			'div',
 			{ style: card_styles.wrapper },
-			React.createElement(
-				'div',
-				{ style: card_styles.pic },
-				'img placeholderasdfasdf'
-			),
+			React.createElement('img', { style: card_styles.pic, src: this.props.imageLink }),
 			React.createElement(
 				'div',
 				{ style: card_styles.text_wrapper },
@@ -52327,6 +52323,18 @@ let general_style = {
 			},
 			text_section: gen_text_section
 		}
+	},
+	locations: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper
+		}
+	},
+	quote: {
+		header: gen_header,
+		section: {
+			wrapper: gen_wrapper
+		}
 	}
 };
 
@@ -52344,8 +52352,8 @@ var HomePage = React.createClass({
 			React.createElement(HowItWorks, { style: general_style.howItWorks }),
 			React.createElement(OurPastEvents, { style: general_style.ourPastEvents }),
 			React.createElement(OurPerformers, { style: general_style.ourPerformers }),
-			React.createElement(Locations, null),
-			React.createElement(Quote, null)
+			React.createElement(Locations, { style: general_style.locations }),
+			React.createElement(Quote, { style: general_style.quote })
 		);
 	}
 });
@@ -52548,6 +52556,20 @@ module.exports = Logos;
 var React = __webpack_require__(13);
 var PastEventReview = __webpack_require__(289);
 
+var eventData = [{
+	name: "Trusted by the biggest brands",
+	description: "The performers were absolutely amazing! I couldn't ask for better, the director of the Ottawa and Montreal stores was super impressed by their personality, consistency and interaction with the customers.",
+	person_name: " - Lisa Honkanen, Event Planner, Pizza Pizza",
+	link: "event1link",
+	imageLink: "http://udellfamilyinsurance.com/wp-content/uploads/2017/01/Fotolia_101375810_Subscription_XXL-800x390.jpg"
+}, {
+	name: "Trusted by Moms",
+	description: "I cannot say enough good things about this performer! She was amazing and in character right from the start! Professional and fun all the way through the event! There weren't too many kids there, and sometimes it is hard to keep a 3 year olds attention, but she was amazing start to finish! A++ for performance! Booking through Sparkgig was easy and stress free!",
+	person_name: " - Meagan Fenske",
+	link: "event2link",
+	imageLink: "http://www.zoomentertainment.com.au/images/entertainers/facepainter-sarah-melbourne.jpg"
+}];
+
 var OurPastEvents = React.createClass({
 	displayName: 'OurPastEvents',
 
@@ -52561,8 +52583,12 @@ var OurPastEvents = React.createClass({
 				{ style: style.header },
 				'Our Past Events'
 			),
-			React.createElement(PastEventReview, { style: style.section }),
-			React.createElement(PastEventReview, { style: style.section })
+			eventData.map(function (content, i) {
+				return React.createElement(PastEventReview, { style: style.section,
+					name: content.name,
+					description: content.description,
+					person_name: content.person_name });
+			})
 		);
 	}
 });
@@ -52618,17 +52644,17 @@ var PastEventReview = React.createClass({
 					React.createElement(
 						"div",
 						{ style: style_text.heading },
-						"A great show for kids"
+						this.props.name
 					),
 					React.createElement(
 						"div",
 						{ style: style_text.description },
-						"blahb albh albh heres the review"
+						this.props.description
 					),
 					React.createElement(
 						"div",
 						{ style: style_text.description },
-						"- person name "
+						this.props.person_name
 					)
 				)
 			)
@@ -52726,7 +52752,7 @@ var PastEventReview = React.createClass({
 						'div',
 						{ style: style_text.heading },
 						this.props.number,
-						' ',
+						'. ',
 						this.props.header
 					),
 					React.createElement(
@@ -52747,7 +52773,7 @@ module.exports = PastEventReview;
 /***/ (function(module, exports, __webpack_require__) {
 
 var React = __webpack_require__(13);
-var mandrill = __webpack_require__(296)('64a5807f338a0c414d06a0bbcdbf5822-us3');
+var mandrill = __webpack_require__(296)('64a5807f338a0c414d06a0bbcdbf5822');
 
 var Quote = React.createClass({
 	displayName: 'Quote',
@@ -52771,102 +52797,82 @@ var Quote = React.createClass({
 		console.log(name);
 		this.setState({ [name]: value });
 	},
-	sendMail: function () {
-		//send an e-mail to sparkgig
-		mandrill('/messages/send', {
-			message: {
-				to: [{ email: 'hello@sparkgig.com', name: 'N/A' }],
-				from_email: 'calvinchan@gmail.com', // get this from form
-				subject: "Sparkgig Email form",
-				text: "???"
-			}
-		}, function (error, response) {
-			//uh oh, there was an error
-			if (error) console.log(JSON.stringify(error));
-			//everything's good, lets see what mandrill said
-			else console.log(response);
-		});
-	},
-
 	render: function () {
-		return (
-			// take them to the quote/performer page?
+		return React.createElement(
+			'form',
+			{ action: 'https://formspree.io/hello@sparkgig.com', method: 'POST' },
 			React.createElement(
-				'form',
-				{ action: this.sendMail },
-				React.createElement(
-					'label',
-					null,
-					'Get a Quote',
-					React.createElement('br', null),
-					'See pricing here instantly',
-					React.createElement('br', null)
-				),
-				React.createElement(
-					'label',
-					null,
-					'Name:',
-					React.createElement('input', { type: 'text', name: 'name',
-						value: this.state.value,
-						onChange: this.handleChange }),
-					React.createElement('br', null)
-				),
-				React.createElement(
-					'label',
-					null,
-					'Date of Event:',
-					React.createElement('input', { type: 'text', name: 'date',
-						value: this.state.value,
-						onChange: this.handleChange }),
-					React.createElement('br', null)
-				),
-				React.createElement(
-					'label',
-					null,
-					'Duration:',
-					React.createElement('input', { type: 'text', name: 'duration',
-						value: this.state.value,
-						onChange: this.handleChange }),
-					React.createElement('br', null)
-				),
-				React.createElement(
-					'label',
-					null,
-					'# of Guests:',
-					React.createElement('input', { type: 'text', name: 'num_guests',
-						value: this.state.value,
-						onChange: this.handleChange }),
-					React.createElement('br', null)
-				),
-				React.createElement(
-					'label',
-					null,
-					'Postal Code of Venue',
-					React.createElement('input', { type: 'text', name: 'postal_code',
-						value: this.state.value,
-						onChange: this.handleChange }),
-					React.createElement('br', null)
-				),
-				React.createElement(
-					'label',
-					null,
-					'Email:',
-					React.createElement('input', { type: 'text', name: 'email',
-						value: this.state.value,
-						onChange: this.handleChange }),
-					React.createElement('br', null)
-				),
-				React.createElement(
-					'label',
-					null,
-					'Anything else we should know?',
-					React.createElement('input', { type: 'text', name: 'anything_else',
-						value: this.state.value,
-						onChange: this.handleChange }),
-					React.createElement('br', null)
-				),
-				React.createElement('input', { type: 'submit', value: 'Submit' })
-			)
+				'label',
+				null,
+				'Get a Quote',
+				React.createElement('br', null),
+				'See pricing here instantly',
+				React.createElement('br', null)
+			),
+			React.createElement(
+				'label',
+				null,
+				'Name:',
+				React.createElement('input', { type: 'text', name: 'name',
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement('br', null)
+			),
+			React.createElement(
+				'label',
+				null,
+				'Date of Event:',
+				React.createElement('input', { type: 'text', name: 'date',
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement('br', null)
+			),
+			React.createElement(
+				'label',
+				null,
+				'Duration:',
+				React.createElement('input', { type: 'text', name: 'duration',
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement('br', null)
+			),
+			React.createElement(
+				'label',
+				null,
+				'# of Guests:',
+				React.createElement('input', { type: 'text', name: 'num_guests',
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement('br', null)
+			),
+			React.createElement(
+				'label',
+				null,
+				'Postal Code of Venue',
+				React.createElement('input', { type: 'text', name: 'postal_code',
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement('br', null)
+			),
+			React.createElement(
+				'label',
+				null,
+				'Email:',
+				React.createElement('input', { type: 'text', name: '_replyto',
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement('br', null)
+			),
+			React.createElement(
+				'label',
+				null,
+				'Anything else we should know?',
+				React.createElement('input', { type: 'text', name: 'anything_else',
+					value: this.state.value,
+					onChange: this.handleChange }),
+				React.createElement('br', null)
+			),
+			React.createElement('input', { type: 'submit', value: 'Submit' })
 		);
 	}
 });
@@ -52881,20 +52887,20 @@ var React = __webpack_require__(13);
 var EventCard = __webpack_require__(154);
 
 var eventData = [{
-	name: "Magic Shows",
-	description: "event1 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
+	name: "Quality performers for a fraction of the cost",
+	description: "Did you know that other agencies markup the cost of performers by more than 100%? Sparkgig reduces this cost with an agency fee of 20% and passing the savings to you! ",
 	link: "event1link",
-	imageLink: "event1imagelink"
+	imageLink: "/app/assets/TSA1.png"
 }, {
-	name: "Face Painting",
-	description: "event2 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asff",
+	name: "Professional performers with years of experience",
+	description: "All our performers are background checked,  experienced and awesome certified by us. We help you do the screening,so that you know you have the best.",
 	link: "event2link",
-	imageLink: "event2imagelink"
+	imageLink: "/app/assets/TSA2.png"
 }, {
-	name: "Balloon Twisting",
-	description: "event3 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
+	name: "Great availability and guaranteed attendance",
+	description: "With over 200 performers at your disposal, we offer the best availability even during the busy times! With each performer  backed up by several others and our amazing team, we guarantee your performers will show up!",
 	link: "event3link",
-	imageLink: "event3imagelink"
+	imageLink: "/app/assets/TSA3.png"
 }];
 
 var SparkgigAdvantage = React.createClass({
@@ -52904,6 +52910,7 @@ var SparkgigAdvantage = React.createClass({
 		var style = JSON.parse(JSON.stringify(this.props.style));
 		style.card.wrapper.width = '28%';
 		style.card.wrapper.margin = '2%';
+		style.card.wrapper.height = 500;
 
 		return React.createElement(
 			'div',
@@ -52939,25 +52946,25 @@ var React = __webpack_require__(13);
 var EventCard = __webpack_require__(154);
 
 var eventData = [{
-	name: "Magic Shows",
-	description: "event1 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
+	name: "Magicians",
+	description: "Spice up your party with a little bit of magic. From a magic show, to walk around magic, wow your guests with one of our amazing magicians. ",
 	link: "event1link",
-	imageLink: "event1imagelink"
+	imageLink: "http://udellfamilyinsurance.com/wp-content/uploads/2017/01/Fotolia_101375810_Subscription_XXL-800x390.jpg"
 }, {
-	name: "Face Painting",
-	description: "event2 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asff",
+	name: "Face Painters",
+	description: "Become a superhero, ROAR like a lion, twinkle like a fairy princess, or even get your game face on! Let us add a little color to your next party with a face painter!",
 	link: "event2link",
-	imageLink: "event2imagelink"
+	imageLink: "http://www.zoomentertainment.com.au/images/entertainers/facepainter-sarah-melbourne.jpg"
 }, {
-	name: "Balloon Twisting",
-	description: "event3 asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
+	name: "Balloon Twisters",
+	description: "Give your party some pop with some Balloon Art! From animals to crowns, you name it, we make it! ",
 	link: "event3link",
-	imageLink: "event3imagelink"
+	imageLink: "https://www.edmontonbouncycastle.ca/wp-content/uploads/2016/03/balloonartist.png"
 }, {
-	name: "Superhero Shows",
-	description: "event4a; asd lf ka sd fl ;kjas d;flkj asdlf kjhsa dflgk jhda f g l kjhas d;flh jasd fl;g hjk asf",
+	name: "Caricature Artists",
+	description: "If you are looking for a unique, hand made, and personalized gift for your guests, this is it! Create memories to last with one of our caricature artists.",
 	link: "event4link",
-	imageLink: "event4imagelink"
+	imageLink: "http://www.weddingsonline.in/blog/wp-content/uploads/2014/01/87.jpg"
 }];
 
 var WhatWeDo = React.createClass({
@@ -52975,6 +52982,11 @@ var WhatWeDo = React.createClass({
 				'What We Do'
 			),
 			React.createElement('iframe', { style: style.video, src: 'https://www.youtube.com/embed/vFUaVhvfdLA' }),
+			React.createElement(
+				'div',
+				null,
+				'Book amazing performers instantly for a fraction of the cost. In a few clicks, receive a quote, availability and just book! It\u2019s that easy. With over 200 performers and our top tier customer service team,we have your back every step of the way to the day of the event.'
+			),
 			React.createElement(
 				'div',
 				null,

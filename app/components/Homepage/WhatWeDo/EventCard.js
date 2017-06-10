@@ -15,10 +15,7 @@ var EventCard = React.createClass({
 		var card_styles = this.props.style;
 		return (
 			<div style={card_styles.wrapper}>
-				<div style={card_styles.pic}>
-					img placeholderasdfasdf
-					{/*<img src={this.props.imageLink} />*/}
-				</div>
+				<img style={card_styles.pic} src={this.props.imageLink} />
 				<div style={card_styles.text_wrapper}>
 					<div className="heading"
 						 style={card_styles.heading}>
