@@ -10932,7 +10932,7 @@ var PastEventReview = React.createClass({
 		style_pic.float = 'left';
 		style_text.review_wrapper.float = 'left';
 		style_text.review_wrapper.width = '90%';
-		style_text.review_wrapper.height = 150;
+		style_text.review_wrapper.height = 125;
 		style_text.review_wrapper.margin = '0% 5%';
 
 		return React.createElement(
@@ -10970,8 +10970,37 @@ module.exports = PastEventReview;
 
 var React = __webpack_require__(7);
 
+const gen_input_style = {
+	borderRadius: '5px',
+	height: '30px',
+	fontSize: '100%',
+	padding: '10px',
+	border: 'none',
+	backgroundColor: '#EAEBEE',
+	margin: '7px 0px',
+	width: '100%'
+};
+
+// let left_input_style = Object.assign({}, gen_input_style);
+// let right_input_style = Object.assign({}, gen_input_style);
+
+const inline = {
+	display: 'inline-block',
+	width: '48%'
+};
+
+let left_input_style = Object.assign({}, inline);
+let right_input_style = Object.assign({}, inline);
+left_input_style.float = 'left';
+right_input_style.float = 'right';
+
+const wrapper = {
+	width: '60%',
+	margin: '0% 20%'
+};
+
 var Quote = React.createClass({
-	displayName: "Quote",
+	displayName: 'Quote',
 
 	getInitialState: function () {
 		return {
@@ -10991,85 +11020,101 @@ var Quote = React.createClass({
 		this.setState({ [name]: value });
 	},
 	render: function () {
-		let style = this.props.style;
+		const style = this.props.style;
 		return React.createElement(
-			"form",
-			{ action: "https://formspree.io/hello@sparkgig.com", method: "POST" },
+			'form',
+			{ action: 'https://formspree.io/hello@sparkgig.com', method: 'POST' },
 			React.createElement(
-				"label",
+				'label',
 				{ style: style.header },
-				"Get a Quote"
+				'Get a Quote',
+				React.createElement('br', null)
 			),
 			React.createElement(
-				"label",
+				'div',
 				null,
-				"See pricing here instantly",
-				React.createElement("br", null)
+				'See pricing here instantly',
+				React.createElement('br', null)
 			),
 			React.createElement(
-				"label",
-				null,
-				"Name:",
-				React.createElement("input", { type: "text", name: "name",
+				'div',
+				{ style: wrapper },
+				React.createElement('input', { type: 'text', name: 'name',
+					placeholder: 'Name',
 					value: this.state.value,
+					style: gen_input_style,
 					onChange: this.handleChange }),
-				React.createElement("br", null)
+				React.createElement('br', null)
 			),
 			React.createElement(
-				"label",
-				null,
-				"Date of Event:",
-				React.createElement("input", { type: "text", name: "date",
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement("br", null)
+				'div',
+				{ style: wrapper },
+				React.createElement(
+					'div',
+					{ style: left_input_style },
+					React.createElement('input', { type: 'text', name: 'date',
+						placeholder: 'Date of Event',
+						value: this.state.value,
+						style: gen_input_style,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'div',
+					{ style: right_input_style },
+					React.createElement('input', { type: 'text', name: 'duration',
+						placeholder: 'Duration',
+						value: this.state.value,
+						style: gen_input_style,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				)
 			),
 			React.createElement(
-				"label",
-				null,
-				"Duration:",
-				React.createElement("input", { type: "text", name: "duration",
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement("br", null)
+				'div',
+				{ style: wrapper },
+				React.createElement(
+					'div',
+					{ style: left_input_style },
+					React.createElement('input', { type: 'text', name: 'num_guests',
+						placeholder: 'Number of Guests',
+						value: this.state.value,
+						style: gen_input_style,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				),
+				React.createElement(
+					'div',
+					{ style: right_input_style },
+					React.createElement('input', { type: 'text', name: 'postal_code',
+						placeholder: 'Postal Code of Venue',
+						value: this.state.value,
+						style: gen_input_style,
+						onChange: this.handleChange }),
+					React.createElement('br', null)
+				)
 			),
 			React.createElement(
-				"label",
-				null,
-				"# of Guests:",
-				React.createElement("input", { type: "text", name: "num_guests",
+				'div',
+				{ style: wrapper },
+				React.createElement('input', { type: 'text', name: '_replyto',
+					placeholder: 'Email',
 					value: this.state.value,
+					style: gen_input_style,
 					onChange: this.handleChange }),
-				React.createElement("br", null)
+				React.createElement('br', null)
 			),
 			React.createElement(
-				"label",
-				null,
-				"Postal Code of Venue",
-				React.createElement("input", { type: "text", name: "postal_code",
+				'div',
+				{ style: wrapper },
+				React.createElement('input', { type: 'text', name: 'anything_else',
+					placeholder: 'Anything else we should know?',
 					value: this.state.value,
+					style: gen_input_style,
 					onChange: this.handleChange }),
-				React.createElement("br", null)
+				React.createElement('br', null)
 			),
-			React.createElement(
-				"label",
-				null,
-				"Email:",
-				React.createElement("input", { type: "text", name: "_replyto",
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement("br", null)
-			),
-			React.createElement(
-				"label",
-				null,
-				"Anything else we should know?",
-				React.createElement("input", { type: "text", name: "anything_else",
-					value: this.state.value,
-					onChange: this.handleChange }),
-				React.createElement("br", null)
-			),
-			React.createElement("input", { type: "submit", value: "Submit" })
+			React.createElement('input', { type: 'submit', value: 'Submit' })
 		);
 	}
 });

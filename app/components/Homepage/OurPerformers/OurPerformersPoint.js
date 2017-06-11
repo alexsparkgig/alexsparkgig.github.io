@@ -9,7 +9,7 @@ var PastEventReview = React.createClass({
 		style_pic.float = 'left';
 		style_text.review_wrapper.float = 'left';
 		style_text.review_wrapper.width = '90%';
-		style_text.review_wrapper.height = 150;
+		style_text.review_wrapper.height = 125;
 		style_text.review_wrapper.margin = '0% 5%'
 
 		return (
