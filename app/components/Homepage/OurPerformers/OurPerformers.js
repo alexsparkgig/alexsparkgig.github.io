@@ -24,19 +24,33 @@ var ourPerformersData = [{
 	}
 ];
 
+const header = {
+	color: '#64717A',
+	textAlign: 'center',
+	fontFamily: 'Helvetica Neue',
+	margin: '30px',
+	fontSize: '32px'
+}
+
+const wrapper = {
+	width: '80%',
+	textAlign: 'center',
+	margin: '0% 10%',
+	display: 'flex',
+	flexDirection: 'column',
+}
 
 var OurPerformers = React.createClass({
 	render: function() {
 		var style = this.props.style;
 		return (
-			<div>
-				<div style={style.header}>Our Performers</div>
+			<div style={wrapper}>
+				<div style={header}>Our Performers</div>
 				{
 					ourPerformersData.map(function(content, i) {
 						return (
 							<OurPerformersPoint key={i}
 												number={i+1}
-												style={style.section}
 												header={content.header}
 												text={content.description} />
 						)

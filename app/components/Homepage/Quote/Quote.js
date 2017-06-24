@@ -11,8 +11,17 @@ const gen_input_style = {
 	width: '100%',
 }
 
-// let left_input_style = Object.assign({}, gen_input_style);
-// let right_input_style = Object.assign({}, gen_input_style);
+let submit_style = {
+	borderRadius: 5,
+	width: 170,
+	height: 40,
+	backgroundColor: '#53A5E3',
+	color: 'white',
+	lineHeight: '50%',
+	fontSize: '20px',
+	border: 'none',
+	margin: '20px 0',
+}
 
 const inline = {
 	display: 'inline-block',
@@ -48,13 +57,15 @@ var Quote = React.createClass({
 		this.setState({ [name]: value })
 	},
 	render: function() {
-		const style = this.props.style
+		let style = this.props.style
 		return (
-			<form action="https://formspree.io/hello@sparkgig.com" method="POST">
-				<label style={style.header}>Get a Quote<br/></label>
-				<div>
+			<form action="https://formspree.io/hello@sparkgig.com"
+				  method="POST"
+				  id="quote">
+				<div style={style.header}>Get a Quote<br/></div>
+				{/*<div style={tagline}>
 					See pricing here instantly<br/>
-				</div>
+				</div>*/}
 				<div style={wrapper}>
 					<input type="text" name="name"
 							placeholder='Name'
@@ -108,7 +119,9 @@ var Quote = React.createClass({
 							style={gen_input_style}
 						   	onChange={this.handleChange} /><br/>
 				</div>
-				<input type="submit" value="Submit" />
+				<input type="submit"
+						value="Submit"
+						style={submit_style} />
 			</form>
 		)	
 	}

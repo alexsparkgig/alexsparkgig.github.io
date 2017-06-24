@@ -16,17 +16,24 @@ var eventData = [{
 	}
 ];
 
+let gen_header = {
+	color: '#64717A',
+	textAlign: 'center',
+	fontFamily: 'Helvetica Neue',
+	margin: '30px',
+	fontSize: '32px',
+}
+
 var OurPastEvents = React.createClass({
 	render: function() {
 		var style = this.props.style;
 		return (
 			<div>
-				<div style={style.header}>Our Past Events</div>
+				<div style={gen_header}>Our Past Events</div>
 				{
 					eventData.map(function(content, i) {
 						return (
-							<PastEventReview style={style.section}
-											 name={content.name} 
+							<PastEventReview name={content.name} 
 											 description={content.description}
 											 person_name={content.person_name} />
 						)

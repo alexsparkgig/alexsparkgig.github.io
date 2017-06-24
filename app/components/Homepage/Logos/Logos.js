@@ -13,6 +13,9 @@ var logoData = [{
 	}
 ];
 
+const pic_style = {
+
+}
 
 var Logos = React.createClass({
 	render: function() {
@@ -23,16 +26,10 @@ var Logos = React.createClass({
 
 		return (
 			<div style={style.wrapper}>
-				{/*<img src={} />
-				<img src={} />
-				<img src={} />
-				<img src={} />
-				<img src={} />*/}
-				{
-					logoData.map(function(data) {
-						return <div style={style.logo_pic}>placeholder</div>
-					})
-				}
+				{logoData.map(function(data) {
+					// return <img src={data.imageLink} style={pic_style} />
+					return <div style={style.logo_pic}>placeholder</div>
+				})}
 			</div>
 		)	
 	}

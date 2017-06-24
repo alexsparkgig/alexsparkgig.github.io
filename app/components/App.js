@@ -1,9 +1,9 @@
 var React = require('react');
 
-var HomePage = require('./HomePage.js');
+var HomePage = require('./Homepage/HomePage.js');
+var QuotePage = require('./Quote/OurPerformances.js');
 
 var style = {
-	border: '1px solid black',
 	fontFamily: 'Helvetica Neue'
 }
 
@@ -12,8 +12,8 @@ var App = React.createClass({
 		return (
 			<div className="app" style={style}>
 				<HomePage />
+				{/*<QuotePage />*/}
 			</div>
-			// <Navigation />
 			// <Header />
 		)
 	}

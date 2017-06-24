@@ -20,6 +20,7 @@ var howItWorksData = [{
 	}
 ];
 
+
 var HowItWorks = React.createClass({
 	render: function() {
 		var style = this.props.style;
@@ -34,8 +35,7 @@ var HowItWorks = React.createClass({
 								  number={num}
 								  description={data.description}
 								  link={data.link}
-								  imageLink={data.imageLink}
-								  style={style} />
+								  imageLink={data.imageLink} />
 						)
 					})
 				}

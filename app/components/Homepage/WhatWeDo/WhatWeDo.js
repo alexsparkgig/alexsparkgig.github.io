@@ -24,31 +24,55 @@ var eventData = [{
 	}
 ];
 
+const card_wrapper = {
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
+}
+
+let gen_wrapper = {
+	width: '80%',
+	textAlign: 'center',
+	margin: '0% 10%',
+}
+
 var WhatWeDo = React.createClass({
 	render() {
-		var style = this.props.style;
-
+		let style = this.props.style;
 		return (
-			<div style={style.wrapper}>
+			<div style={gen_wrapper} id={"whatwedo"}>
 				<div style={style.header}>What We Do</div>
-				{/*video here*/}
-				<iframe style={style.video} src={'https://www.youtube.com/embed/vFUaVhvfdLA'} />
+				{/* <iframe style={style.video} src={'https://www.youtube.com/embed/vFUaVhvfdLA'} /> */}
 				<div>
 					Book amazing performers instantly for a fraction of the cost. In a few clicks, receive a quote, availability and just book! It’s that easy. With over 200 performers and our top tier customer service team,we have your back every step of the way to the day of the event.
 				</div>
-				<div>
-					{
-						eventData.map(function(data) {
-							return (
-								<EventCard key={data.name}
-										   imageLink={data.imageLink}
-										   event={data.name} 
-							   			   description={data.description}
-							               link={data.link}
-							               style={style.card} />
-							);
-						})
-					}
+				<div style={card_wrapper}>
+					<EventCard key={eventData[0].name}
+							   imageLink={eventData[0].imageLink}
+							   event={eventData[0].name} 
+				   			   description={eventData[0].description}
+				               link={eventData[0].link}
+				               origin={"WhatWeDo"} />
+				    <EventCard key={eventData[1].name}
+							   imageLink={eventData[1].imageLink}
+							   event={eventData[1].name} 
+				   			   description={eventData[1].description}
+				               link={eventData[1].link}
+				               origin={"WhatWeDo"} />
+				</div>
+				<div style={card_wrapper}>
+					<EventCard key={eventData[2].name}
+							   imageLink={eventData[2].imageLink}
+							   event={eventData[2].name} 
+				   			   description={eventData[2].description}
+				               link={eventData[2].link}
+				               origin={"WhatWeDo"} />
+				    <EventCard key={eventData[3].name}
+							   imageLink={eventData[3].imageLink}
+							   event={eventData[3].name} 
+				   			   description={eventData[3].description}
+				               link={eventData[3].link}
+				               origin={"WhatWeDo"} />
 				</div>
 			</div>
 		);
