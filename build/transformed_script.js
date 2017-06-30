@@ -11621,7 +11621,7 @@ var ReactDOM = __webpack_require__(27);
 var App = __webpack_require__(93);
 
 // entrypoint
-ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('app'));
 
 /***/ }),
 /* 110 */
