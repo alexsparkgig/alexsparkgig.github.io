@@ -5,7 +5,9 @@
   "main": "script.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -18,8 +20,10 @@
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-react": "^6.24.1",
+    "gh-pages": "^1.0.0",
     "html-webpack-plugin": "^2.28.0",
     "webpack": "^2.5.0",
     "webpack-dev-server": "^2.4.5"
-  }
+  },
+  "homepage": "https://alexsparkgig.github.io/alexsparkgig.github.io"
 }

@@ -7074,6 +7074,66 @@ module.exports = emptyObject;
 var React = __webpack_require__(5);
 var PropTypes = __webpack_require__(59);
 
+const colors = {
+	section: '#64717A', // (what we do, our locations) section title
+	pale_blue: '#FBFCFF',
+	body_text: '#7A7A7A',
+	circle_color: '#EAEBEE',
+	circle_text: '#797979',
+	CTA_buttons: '#53A5E3',
+	CTA_hover: '#77ABCF',
+	white: 'white'
+};
+
+let gen_card = {
+	wrapper: {
+		border: '1px solid #DFE5E9',
+		height: 500,
+		width: '28%',
+		borderRadius: 5,
+		margin: '2%',
+		display: 'flex',
+		flexDirection: 'column'
+	},
+	pic: {
+		backgroundColor: '#F1F2F5',
+		width: '100%',
+		height: '50%'
+	},
+	text_wrapper: {
+		marginLeft: 20,
+		height: '50%',
+		textAlign: 'left',
+		display: 'flex',
+		flexDirection: 'column'
+	},
+	heading: {
+		color: 'black',
+		fontSize: '22px',
+		fontWeight: '500',
+		margin: '14px 0'
+	},
+	description: {
+		color: colors.section
+	},
+	cta_text: {
+		color: colors.CTA_buttons,
+		fontWeight: '500',
+		alignSelf: 'flex-end',
+		margin: 'auto auto 20px 0px'
+	}
+};
+
+const whatwedo_wrapper = {
+	border: '1px solid #DFE5E9',
+	height: 400,
+	width: '33%',
+	borderRadius: 5,
+	margin: '2%',
+	display: 'flex',
+	flexDirection: 'column'
+};
+
 var EventCard = React.createClass({
 	displayName: 'EventCard',
 
@@ -7084,13 +7144,15 @@ var EventCard = React.createClass({
 		link: PropTypes.string.isRequired
 	},
 	seeAvailabilityHander: function () {
-		// this.setState({this.props.link});
+		var element = document.getElementById("quote");
+		element.scrollIntoView({ block: "end", behavior: "smooth" });
 	},
 	render() {
-		var card_styles = this.props.style;
+		var card_styles = gen_card;
+
 		return React.createElement(
 			'div',
-			{ style: card_styles.wrapper },
+			{ style: this.props.origin == "WhatWeDo" ? whatwedo_wrapper : card_styles.wrapper },
 			React.createElement('img', { style: card_styles.pic, src: this.props.imageLink }),
 			React.createElement(
 				'div',
@@ -10145,7 +10207,7 @@ module.exports = App;
 var React = __webpack_require__(5);
 
 const CTA_button_color = '#53A5E3';
-const CTA_hover = '#77ABCF';
+const CTA_hover = '#EDF5FB';
 
 let cta_style = {
 	borderRadius: 5,
@@ -10210,12 +10272,12 @@ var CTA_button = React.createClass({
 		this.setState({ hovered: !this.state.hovered });
 	},
 	viewExperiences: function () {
-		// this change state when hovered
 		// maybe scroll down to "What we do"?
-		console.log("view experiences???");
+		var element = document.getElementById("whatwedo");
+		element.scrollIntoView({ block: "end", behavior: "smooth" });
 	},
 	render: function () {
-		this.state.hovered ? cta_style.color = CTA_hover : cta_style.color = CTA_button_color;
+		this.state.hovered ? cta_style.backgroundColor = CTA_hover : cta_style.backgroundColor = 'white';
 		return React.createElement(
 			'div',
 			{ style: cta_style,
@@ -10256,7 +10318,7 @@ var Header = React.createClass({
 				{ style: tagline },
 				'Whether it\'s a simple holiday office party or birthday'
 			),
-			React.createElement(CTA_button, { style: cta_style })
+			React.createElement(CTA_button, { style: cta_style, onClick: this.viewExperiences })
 		);
 	}
 });
@@ -10409,11 +10471,6 @@ let general_style = {
 		},
 		card: gen_card
 	},
-	sparkgigAdvantage: {
-		header: gen_header,
-		wrapper: gen_wrapper,
-		card: gen_card
-	},
 	howItWorks: {
 		header: gen_header
 	},
@@ -10445,7 +10502,7 @@ var HomePage = React.createClass({
 			React.createElement(Header, { style: general_style.homePage }),
 			React.createElement(Logos, { style: general_style.logos }),
 			React.createElement(WhatWeDo, { style: general_style.whatWeDo }),
-			React.createElement(SparkgigAdvantage, { style: general_style.sparkgigAdvantage }),
+			React.createElement(SparkgigAdvantage, null),
 			React.createElement(HowItWorks, { style: general_style.howItWorks }),
 			React.createElement(OurPastEvents, { style: general_style.ourPastEvents }),
 			React.createElement(OurPerformers, null),
@@ -10537,7 +10594,9 @@ const wrapper = {
 
 const next_wrapper = {
 	flexGrow: '5',
-	display: 'flex'
+	display: 'flex',
+	alignSelf: 'center',
+	transform: 'translateY(-50%)'
 };
 
 let style_pic = {
@@ -10681,6 +10740,8 @@ var logoData = [{
 	imageLink: "event5imagelink"
 }];
 
+const pic_style = {};
+
 var Logos = React.createClass({
 	displayName: "Logos",
 
@@ -10694,6 +10755,7 @@ var Logos = React.createClass({
 			"div",
 			{ style: style.wrapper },
 			logoData.map(function (data) {
+				// return <img src={data.imageLink} style={pic_style} />
 				return React.createElement(
 					"div",
 					{ style: style.logo_pic },
@@ -11021,17 +11083,16 @@ const gen_input_style = {
 	width: '100%'
 };
 
-const submit_style = {
-	borderRadius: '5px',
-	height: '30px',
-	fontSize: '100%',
-	padding: '10px',
-	border: 'none',
-	backgroundColor: '#EAEBEE',
-	margin: '7px 0px',
-	width: 100,
+let submit_style = {
+	borderRadius: 5,
+	width: 170,
+	height: 40,
+	backgroundColor: '#53A5E3',
+	color: 'white',
 	lineHeight: '50%',
-	border: '2px solid'
+	fontSize: '20px',
+	border: 'none',
+	margin: '20px 0'
 };
 
 const inline = {
@@ -11073,7 +11134,9 @@ var Quote = React.createClass({
 		let style = this.props.style;
 		return React.createElement(
 			'form',
-			{ action: 'https://formspree.io/hello@sparkgig.com', method: 'POST' },
+			{ action: 'https://formspree.io/hello@sparkgig.com',
+				method: 'POST',
+				id: 'quote' },
 			React.createElement(
 				'div',
 				{ style: style.header },
@@ -11181,43 +11244,57 @@ var eventData = [{
 	imageLink: "/app/assets/TSA1.png"
 }, {
 	name: "Professional performers with years of experience",
-	description: "All our performers are background checked,  experienced and awesome certified by us. We help you do the screening,so that you know you have the best.",
+	description: "All our performers are background checked,  experienced and awesome certified by us. We help you do the screening, so that you know you have the best.",
 	link: "event2link",
 	imageLink: "/app/assets/TSA2.png"
 }, {
 	name: "Great availability and guaranteed attendance",
-	description: "With over 200 performers at your disposal, we offer the best availability even during the busy times! With each performer  backed up by several others and our amazing team, we guarantee your performers will show up!",
+	description: "With over 200 performers at your disposal, we offer the best availability even during the busy times! With each performer backed up by several others and our amazing team, we guarantee your performers will show up!",
 	link: "event3link",
 	imageLink: "/app/assets/TSA3.png"
 }];
+
+let gen_header = {
+	color: '#64717A',
+	textAlign: 'center',
+	fontFamily: 'Helvetica Neue',
+	margin: '30px',
+	fontSize: '32px'
+};
+
+let gen_wrapper = {
+	width: '80%',
+	textAlign: 'center',
+	margin: '0% 10%'
+};
+
+const flex_container = {
+	display: 'flex',
+	flexDirection: 'row'
+};
 
 var SparkgigAdvantage = React.createClass({
 	displayName: 'SparkgigAdvantage',
 
 	render() {
-		var style = JSON.parse(JSON.stringify(this.props.style));
-		style.card.wrapper.width = '28%';
-		style.card.wrapper.margin = '2%';
-		style.card.wrapper.height = 500;
-
 		return React.createElement(
 			'div',
-			{ style: style.wrapper },
+			{ style: gen_wrapper },
 			React.createElement(
 				'div',
-				{ style: style.header },
+				{ style: gen_header },
 				'The SparkGig Advantage'
 			),
 			React.createElement(
 				'div',
-				null,
+				{ style: flex_container },
 				eventData.map(function (data) {
 					return React.createElement(EventCard, { key: data.name,
 						imageLink: data.imageLink,
 						event: data.name,
 						description: data.description,
 						link: data.link,
-						style: style.card });
+						origin: "SparkgigAdvantage" });
 				})
 			)
 		);
@@ -11255,21 +11332,31 @@ var eventData = [{
 	imageLink: "http://www.weddingsonline.in/blog/wp-content/uploads/2014/01/87.jpg"
 }];
 
+const card_wrapper = {
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center'
+};
+
+let gen_wrapper = {
+	width: '80%',
+	textAlign: 'center',
+	margin: '0% 10%'
+};
+
 var WhatWeDo = React.createClass({
 	displayName: 'WhatWeDo',
 
 	render() {
-		var style = this.props.style;
-
+		let style = this.props.style;
 		return React.createElement(
 			'div',
-			{ style: style.wrapper },
+			{ style: gen_wrapper, id: "whatwedo" },
 			React.createElement(
 				'div',
 				{ style: style.header },
 				'What We Do'
 			),
-			React.createElement('iframe', { style: style.video, src: 'https://www.youtube.com/embed/vFUaVhvfdLA' }),
 			React.createElement(
 				'div',
 				null,
@@ -11277,15 +11364,35 @@ var WhatWeDo = React.createClass({
 			),
 			React.createElement(
 				'div',
-				null,
-				eventData.map(function (data) {
-					return React.createElement(EventCard, { key: data.name,
-						imageLink: data.imageLink,
-						event: data.name,
-						description: data.description,
-						link: data.link,
-						style: style.card });
-				})
+				{ style: card_wrapper },
+				React.createElement(EventCard, { key: eventData[0].name,
+					imageLink: eventData[0].imageLink,
+					event: eventData[0].name,
+					description: eventData[0].description,
+					link: eventData[0].link,
+					origin: "WhatWeDo" }),
+				React.createElement(EventCard, { key: eventData[1].name,
+					imageLink: eventData[1].imageLink,
+					event: eventData[1].name,
+					description: eventData[1].description,
+					link: eventData[1].link,
+					origin: "WhatWeDo" })
+			),
+			React.createElement(
+				'div',
+				{ style: card_wrapper },
+				React.createElement(EventCard, { key: eventData[2].name,
+					imageLink: eventData[2].imageLink,
+					event: eventData[2].name,
+					description: eventData[2].description,
+					link: eventData[2].link,
+					origin: "WhatWeDo" }),
+				React.createElement(EventCard, { key: eventData[3].name,
+					imageLink: eventData[3].imageLink,
+					event: eventData[3].name,
+					description: eventData[3].description,
+					link: eventData[3].link,
+					origin: "WhatWeDo" })
 			)
 		);
 	}
