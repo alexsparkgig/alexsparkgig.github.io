@@ -68,7 +68,7 @@ const heading = {
 }
 const description = {
 	color: colors.section,
-	fontSize: '20px'	
+	fontSize: '20px'
 }
 
 
