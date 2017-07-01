@@ -27,11 +27,8 @@ const next_wrapper = {
 }
 
 let style_pic = {
-	float: 'left',
-	borderRadius: '25px',
 	width: "40%",
 	height: '80%',
-	display: 'inline-block',
 	flexGrow: '1',
 }
 
@@ -80,13 +77,15 @@ var Step = React.createClass({
 			style_pic.marginRight = '5%';
 			style_pic.width = '40%';
 		} else if (this.props.number === 2) {
-			next_wrapper.marginRight = '10%';
+			style_pic.marginRight = '0%';
+			style_pic.marginLeft = '10%';
 			style_pic.width = '45%';
 		} else if (this.props.number === 3) {
 			style_pic.marginRight = '5%';
+			style_pic.marginLeft = '0%';
 			style_pic.width = '40%';
 		} else if (this.props.number === 4) {
-			next_wrapper.marginRight = '10%';
+			style_pic.marginLeft = '10%';
 			style_pic.width = '20%';
 		}
 
