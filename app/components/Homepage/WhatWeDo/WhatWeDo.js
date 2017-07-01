@@ -33,7 +33,7 @@ const card_wrapper = {
 let gen_wrapper = {
 	width: '80%',
 	textAlign: 'center',
-	margin: '0% 10%',
+	margin: '5% 10%',
 }
 
 const text_block = {

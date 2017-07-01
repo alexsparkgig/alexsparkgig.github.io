@@ -20,12 +20,15 @@ var howItWorksData = [{
 	}
 ];
 
+const gen_wrapper = {
+	margin: '3% 0%',
+}
 
 var HowItWorks = React.createClass({
 	render: function() {
 		var style = this.props.style;
 		return (
-			<div>
+			<div style={gen_wrapper}>
 				<div style={style.header}>How it Works</div>
 				{
 					howItWorksData.map(function(data, i) {

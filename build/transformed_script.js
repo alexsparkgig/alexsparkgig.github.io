@@ -10237,11 +10237,10 @@ const sparkgig_wrapper = {
 };
 
 const logo = {
-	borderRadius: "100%",
-	height: 100,
-	width: 200,
+	height: 70,
+	width: 150,
 	display: "inline-block",
-	margin: 10
+	margin: 20
 };
 
 const text = {
@@ -10352,7 +10351,7 @@ let gen_header = {
 	color: colors.section,
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
-	margin: '30px',
+	margin: '4% 30px',
 	fontSize: '32px'
 };
 
@@ -10533,6 +10532,10 @@ var howItWorksData = [{
 	imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%2030.png?raw=true"
 }];
 
+const gen_wrapper = {
+	margin: '3% 0%'
+};
+
 var HowItWorks = React.createClass({
 	displayName: 'HowItWorks',
 
@@ -10540,7 +10543,7 @@ var HowItWorks = React.createClass({
 		var style = this.props.style;
 		return React.createElement(
 			'div',
-			null,
+			{ style: gen_wrapper },
 			React.createElement(
 				'div',
 				{ style: style.header },
@@ -10624,11 +10627,12 @@ const text_wrapper = {
 
 const heading = {
 	color: 'black',
-	fontSize: '30px'
+	fontWeight: '500',
+	fontSize: '25px'
 };
 const description = {
 	color: colors.section,
-	fontSize: '20px'
+	fontSize: '17px'
 };
 
 var Step = React.createClass({
@@ -11335,7 +11339,7 @@ const card_wrapper = {
 let gen_wrapper = {
 	width: '80%',
 	textAlign: 'center',
-	margin: '0% 10%'
+	margin: '5% 10%'
 };
 
 const text_block = {

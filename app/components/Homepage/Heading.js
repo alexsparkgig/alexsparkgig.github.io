@@ -31,10 +31,10 @@ const sparkgig_wrapper = {
 }
 
 const logo = {
-	height: 100,
-	width: 200,
+	height: 70,
+	width: 150,
 	display: "inline-block",
-	margin: 10,
+	margin: 20,
 }
 
 const text = {

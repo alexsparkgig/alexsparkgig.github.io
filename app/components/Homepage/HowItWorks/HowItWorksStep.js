@@ -59,11 +59,12 @@ const text_wrapper = {
 
 const heading = {
 	color: 'black',
-	fontSize: '30px'
+	fontWeight: '500',
+	fontSize: '25px'
 }
 const description = {
 	color: colors.section,
-	fontSize: '20px'
+	fontSize: '17px'
 }
 
 
