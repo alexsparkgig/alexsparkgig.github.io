@@ -36,6 +36,11 @@ let gen_wrapper = {
 	margin: '0% 10%',
 }
 
+const text_block = {
+	width: '70%',
+	marginLeft: '15%',
+}
+
 var WhatWeDo = React.createClass({
 	render() {
 		let style = this.props.style;
@@ -43,8 +48,8 @@ var WhatWeDo = React.createClass({
 			<div style={gen_wrapper} id={"whatwedo"}>
 				<div style={style.header}>What We Do</div>
 				{/* <iframe style={style.video} src={'https://www.youtube.com/embed/vFUaVhvfdLA'} /> */}
-				<div>
-					Book amazing performers instantly for a fraction of the cost. In a few clicks, receive a quote, availability and just book! It’s that easy. With over 200 performers and our top tier customer service team,we have your back every step of the way to the day of the event.
+				<div style={}>
+					Book amazing performers instantly for a fraction of the cost. In a few clicks, receive a quote, availability and just book! It’s that easy. With over 200 performers and our top tier customer service team, we have your back every step of the way to the day of the event.
 				</div>
 				<div style={card_wrapper}>
 					<EventCard key={eventData[0].name}

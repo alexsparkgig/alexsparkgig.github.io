@@ -26,15 +26,14 @@ const wrapper = {
 }
 
 const sparkgig_wrapper = {
-	width: 200,
 	margin: 10,
 	alignSelf: 'flex-start'
 }
 
 const logo = {
 	borderRadius: "100%",
-	height: 50,
-	width: 50,
+	height: 100,
+	width: 200,
 	display: "inline-block",
 	margin: 10,
 }
@@ -77,7 +76,7 @@ var CTA_button = React.createClass({
 	}
 })
 
-const sparkgig_logo = 'https://img.ogol.io/sparkgig.com.png?w=1200&h=630'
+var sparkgig_logo = "/app/assets/sparkgiglogo.svg"
 
 var Header = React.createClass({
 	render: function() {
@@ -85,7 +84,7 @@ var Header = React.createClass({
 			<div style={wrapper}>
 				<div style={sparkgig_wrapper}>
 					<img style={logo} src={sparkgig_logo} />
-					<div style={text}>SparkGig</div>
+					{/*<div style={text}>SparkGig</div>*/}
 				</div>
 				<div style={heading}>Instantly book amazing performers for a fraction of the cost</div>
 				<div style={tagline}>Whether it's a simple holiday office party or birthday</div>
