@@ -15,20 +15,23 @@ var colors = {
 
 const wrapper = {
 	display: 'flex',
-	height: 250,
+	height: 200,
 	textAlign: 'center',
 	margin: '0% 20%',
+	alignItems: 'center',
 }
 
 const next_wrapper = {
 	display: '-webkit-inline-box',
-	alignSelf: 'center',
-	transform: 'translateY(-50%)',
+	// alignSelf: 'center',
+	// transform: 'translateY(-50%)',
 }
 
 let style_pic = {
-	width: "40%",
-	height: '80%',
+	// width: "40%",
+	// height: '80%',
+	// width: '40%',
+	height: 'auto',
 	flexGrow: '1',
 }
 
@@ -75,18 +78,26 @@ var Step = React.createClass({
 	render: function() {
 		if (this.props.number === 1) {
 			style_pic.marginRight = '5%';
-			style_pic.width = '40%';
+			// style_pic.width = '40%';
+			// style_pic.width = 301
+			style_pic.height = 134
 		} else if (this.props.number === 2) {
 			style_pic.marginRight = '0%';
 			style_pic.marginLeft = '10%';
-			style_pic.width = '45%';
+			// style_pic.width = '45%';
+			// style_pic.width = 240
+			style_pic.height = 137
 		} else if (this.props.number === 3) {
 			style_pic.marginRight = '5%';
 			style_pic.marginLeft = '0%';
-			style_pic.width = '40%';
+			// style_pic.width = '40%';
+			// style_pic.width = 291
+			style_pic.height = 210
 		} else if (this.props.number === 4) {
 			style_pic.marginLeft = '10%';
-			style_pic.width = '20%';
+			// style_pic.width = '20%';
+			// style_pic.width = 182
+			style_pic.height = 260
 		}
 
 		return (

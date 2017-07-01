@@ -28,7 +28,7 @@ let gen_header = {
 	color: colors.section,
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
-	margin: '4% 30px',
+	margin: '2% 30px',
 	fontSize: '32px'
 }
 

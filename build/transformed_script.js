@@ -10222,7 +10222,7 @@ let cta_style = {
 
 const wrapper = {
 	width: '100%',
-	// height: "100vh",
+	height: "80vh",
 	display: 'flex',
 	textAlign: 'center',
 	backgroundColor: "rgb(110, 179, 211)",
@@ -10247,8 +10247,7 @@ const logo = {
 
 const text = {
 	display: "inline-block",
-	fontSize: 24,
-	transform: "translate(0%, 55%)"
+	fontSize: 24
 };
 
 const heading = {
@@ -10260,6 +10259,14 @@ const heading = {
 const tagline = {
 	fontSize: 24,
 	marginBottom: 40
+};
+
+const inner_wrapper = {
+	alignSelf: 'center',
+	display: 'flex',
+	alignItems: 'center',
+	flexFlow: 'column nowrap',
+	marginTop: '2%'
 };
 
 var CTA_button = React.createClass({
@@ -10305,15 +10312,19 @@ var Header = React.createClass({
 			),
 			React.createElement(
 				'div',
-				{ style: heading },
-				'Instantly book amazing performers for a fraction of the cost'
-			),
-			React.createElement(
-				'div',
-				{ style: tagline },
-				'Whether it\'s a simple holiday office party or birthday'
-			),
-			React.createElement(CTA_button, { style: cta_style, onClick: this.viewExperiences })
+				{ style: inner_wrapper },
+				React.createElement(
+					'div',
+					{ style: heading },
+					'Instantly book amazing performers for a fraction of the cost'
+				),
+				React.createElement(
+					'div',
+					{ style: tagline },
+					'Whether it\'s a simple holiday office party or birthday'
+				),
+				React.createElement(CTA_button, { style: cta_style, onClick: this.viewExperiences })
+			)
 		);
 	}
 });
@@ -10587,8 +10598,10 @@ const next_wrapper = {
 };
 
 let style_pic = {
-	width: "40%",
-	height: '80%',
+	// width: "40%",
+	// height: '80%',
+	// width: '40%',
+	height: 'auto',
 	flexGrow: '1'
 };
 
@@ -10635,18 +10648,26 @@ var Step = React.createClass({
 	render: function () {
 		if (this.props.number === 1) {
 			style_pic.marginRight = '5%';
-			style_pic.width = '40%';
+			// style_pic.width = '40%';
+			style_pic.width = 301;
+			style_pic.height = 134;
 		} else if (this.props.number === 2) {
 			style_pic.marginRight = '0%';
 			style_pic.marginLeft = '10%';
-			style_pic.width = '45%';
+			// style_pic.width = '45%';
+			style_pic.width = 240;
+			style_pic.height = 137;
 		} else if (this.props.number === 3) {
 			style_pic.marginRight = '5%';
 			style_pic.marginLeft = '0%';
-			style_pic.width = '40%';
+			// style_pic.width = '40%';
+			style_pic.width = 291;
+			style_pic.height = 210;
 		} else if (this.props.number === 4) {
 			style_pic.marginLeft = '10%';
-			style_pic.width = '20%';
+			// style_pic.width = '20%';
+			style_pic.width = 182;
+			style_pic.height = 260;
 		}
 
 		return React.createElement(
@@ -10738,7 +10759,7 @@ const wrapper = {
 };
 
 const pic_style = {
-	width: '100%',
+	width: '80%',
 	margin: '2% 0%'
 };
 
@@ -10839,8 +10860,8 @@ const pic = {
 };
 
 const review_wrapper = {
-	margin: '3% 0% 0% 15%',
-	width: '80%',
+	margin: '3% 0% 0% 2%',
+	width: '90%',
 	height: 200,
 	display: 'flex'
 };

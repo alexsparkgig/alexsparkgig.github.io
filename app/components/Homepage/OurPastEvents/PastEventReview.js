@@ -15,8 +15,8 @@ const pic = {
 }
 
 const review_wrapper = {
-	margin: '3% 0% 0% 15%',
-	width: '80%',
+	margin: '3% 0% 0% 2%',
+	width: '90%',
 	height: 200,
 	display: 'flex',
 }

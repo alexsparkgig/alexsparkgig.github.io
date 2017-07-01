@@ -18,7 +18,7 @@ const wrapper = {
 }
 
 const pic_style = {
-	width: '100%',
+	width: '80%',
 	margin: '2% 0%',
 }
 
