@@ -48,6 +48,7 @@ let gen_card = {
 		fontWeight: '500',
 		alignSelf: 'flex-end',
 		margin: 'auto auto 20px 0px',
+		cursor: 'pointer',
 	},
 }
 

@@ -1,34 +1,34 @@
 var React = require('react');
 
 var logoData = [{
-		imageLink: "event1imagelink"
+		imageLink: "/app/assets/waterloo.png"
 	}, {
-		imageLink: "event2imagelink"
+		imageLink: "/app/assets/toronto-life-logo.png"
 	}, {
-		imageLink: "event3imagelink"
+		imageLink: "/app/assets/dragons-den-logo-large.png"
 	}, {
-		imageLink: "event4imagelink"
+		imageLink: "/app/assets/Betakit-logo-02.png"
 	}, {
-		imageLink: "event5imagelink"
+		imageLink: "/app/assets/BNN.png"
 	}
 ];
 
-const pic_style = {
+const wrapper = {
+	margin: '20px',
+}
 
+const pic_style = {
+	width: '15%',
+	margin: '0 2%',
+	// height: '20%',
 }
 
 var Logos = React.createClass({
 	render: function() {
-		// deep copy of style prop
-		var style = JSON.parse(JSON.stringify(this.props.style));
-		style.wrapper.height = 150;
-		style.wrapper.margin = '0% 10%';
-
 		return (
-			<div style={style.wrapper}>
+			<div style={wrapper}>
 				{logoData.map(function(data) {
-					// return <img src={data.imageLink} style={pic_style} />
-					return <div style={style.logo_pic}>placeholder</div>
+					return <img src={data.imageLink} style={pic_style} />
 				})}
 			</div>
 		)	

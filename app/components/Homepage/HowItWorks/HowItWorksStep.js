@@ -50,7 +50,7 @@ const circle = {
 	fontSize: '150%',
 }
 const text_wrapper = {
-	height: 75,
+	// minHeight: 100,
 	textAlign: 'left',
 }
 

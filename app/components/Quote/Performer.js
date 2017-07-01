@@ -10,6 +10,7 @@ let cta_style = {
 	width: 170,
 	height: 40,
 	backgroundColor: CTA_button_color,
+	cursor: 'pointer',
 	// top: "50%",
 	// left: "50%",
 	// transform: "translate(-50%,0%)",

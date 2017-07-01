@@ -6,6 +6,7 @@ const CTA_hover = '#EDF5FB'
 let cta_style = {
 	borderRadius: 5,
 	width: 170,
+	cursor: 'pointer',
 	height: 40,
 	backgroundColor: "white",
 	color: CTA_button_color,

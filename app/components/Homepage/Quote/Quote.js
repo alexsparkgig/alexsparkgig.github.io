@@ -20,6 +20,7 @@ let submit_style = {
 	lineHeight: '50%',
 	fontSize: '20px',
 	border: 'none',
+	cursor: 'pointer',
 	margin: '20px 0',
 }
 

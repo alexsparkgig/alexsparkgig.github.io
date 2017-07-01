@@ -7120,7 +7120,8 @@ let gen_card = {
 		color: colors.CTA_buttons,
 		fontWeight: '500',
 		alignSelf: 'flex-end',
-		margin: 'auto auto 20px 0px'
+		margin: 'auto auto 20px 0px',
+		cursor: 'pointer'
 	}
 };
 
@@ -10212,6 +10213,7 @@ const CTA_hover = '#EDF5FB';
 let cta_style = {
 	borderRadius: 5,
 	width: 170,
+	cursor: 'pointer',
 	height: 40,
 	backgroundColor: "white",
 	color: CTA_button_color,
@@ -10445,16 +10447,6 @@ let general_style = {
 	body: {
 		color: '#7A7A7A'
 	},
-	logos: {
-		wrapper: gen_wrapper,
-		logo_pic: {
-			display: 'inline-block',
-			verticalAlign: 'middle',
-			width: 200,
-			height: '100%',
-			backgroundColor: colors.circle_color
-		}
-	},
 	whatWeDo: {
 		header: gen_header,
 		wrapper: gen_wrapper,
@@ -10493,7 +10485,7 @@ var HomePage = React.createClass({
 			'div',
 			{ style: general_style.container },
 			React.createElement(Header, { style: general_style.homePage }),
-			React.createElement(Logos, { style: general_style.logos }),
+			React.createElement(Logos, null),
 			React.createElement(WhatWeDo, { style: general_style.whatWeDo }),
 			React.createElement(SparkgigAdvantage, null),
 			React.createElement(HowItWorks, { style: general_style.howItWorks }),
@@ -10595,7 +10587,6 @@ const next_wrapper = {
 };
 
 let style_pic = {
-	// float: 'left',
 	width: "40%",
 	height: '80%',
 	flexGrow: '1'
@@ -10619,7 +10610,7 @@ const circle = {
 	fontSize: '150%'
 };
 const text_wrapper = {
-	height: 75,
+	// minHeight: 100,
 	textAlign: 'left'
 };
 
@@ -10643,16 +10634,18 @@ var Step = React.createClass({
 	},
 	render: function () {
 		if (this.props.number === 1) {
-			// style_pic.marginRight = '5%';
+			style_pic.marginRight = '5%';
 			style_pic.width = '40%';
 		} else if (this.props.number === 2) {
-			// next_wrapper.marginRight = '10%';
+			style_pic.marginRight = '0%';
+			style_pic.marginLeft = '10%';
 			style_pic.width = '45%';
 		} else if (this.props.number === 3) {
-			// style_pic.marginRight = '5%';
+			style_pic.marginRight = '5%';
+			style_pic.marginLeft = '0%';
 			style_pic.width = '40%';
 		} else if (this.props.number === 4) {
-			// next_wrapper.marginRight = '10%';
+			style_pic.marginLeft = '10%';
 			style_pic.width = '20%';
 		}
 
@@ -10696,6 +10689,12 @@ module.exports = Step;
 
 var React = __webpack_require__(5);
 
+var map = "/app/assets/map.png";
+
+const map_style = {
+	width: '100%'
+};
+
 var Locations = React.createClass({
 	displayName: 'Locations',
 
@@ -10709,7 +10708,7 @@ var Locations = React.createClass({
 				{ style: style.header },
 				'Available across Southwestern Ontario!'
 			),
-			React.createElement('div', { style: style.map })
+			React.createElement('img', { src: map, style: map_style })
 		);
 	}
 });
@@ -10723,38 +10722,35 @@ module.exports = Locations;
 var React = __webpack_require__(5);
 
 var logoData = [{
-	imageLink: "event1imagelink"
+	imageLink: "/app/assets/waterloo.png"
 }, {
-	imageLink: "event2imagelink"
+	imageLink: "/app/assets/toronto-life-logo.png"
 }, {
-	imageLink: "event3imagelink"
+	imageLink: "/app/assets/dragons-den-logo-large.png"
 }, {
-	imageLink: "event4imagelink"
+	imageLink: "/app/assets/Betakit-logo-02.png"
 }, {
-	imageLink: "event5imagelink"
+	imageLink: "/app/assets/BNN.png"
 }];
 
-const pic_style = {};
+const wrapper = {
+	margin: '20px'
+};
+
+const pic_style = {
+	width: '15%',
+	margin: '0 2%'
+};
 
 var Logos = React.createClass({
 	displayName: "Logos",
 
 	render: function () {
-		// deep copy of style prop
-		var style = JSON.parse(JSON.stringify(this.props.style));
-		style.wrapper.height = 150;
-		style.wrapper.margin = '0% 10%';
-
 		return React.createElement(
 			"div",
-			{ style: style.wrapper },
+			{ style: wrapper },
 			logoData.map(function (data) {
-				// return <img src={data.imageLink} style={pic_style} />
-				return React.createElement(
-					"div",
-					{ style: style.logo_pic },
-					"placeholder"
-				);
+				return React.createElement("img", { src: data.imageLink, style: pic_style });
 			})
 		);
 	}
@@ -11088,6 +11084,7 @@ let submit_style = {
 	lineHeight: '50%',
 	fontSize: '20px',
 	border: 'none',
+	cursor: 'pointer',
 	margin: '20px 0'
 };
 
@@ -11337,7 +11334,7 @@ const card_wrapper = {
 let gen_wrapper = {
 	width: '80%',
 	textAlign: 'center',
-	margin: '5% 10%'
+	margin: '2% 10%'
 };
 
 const text_block = {
@@ -11484,6 +11481,7 @@ let cta_style = {
 	width: 170,
 	height: 40,
 	backgroundColor: CTA_button_color,
+	cursor: 'pointer',
 	// top: "50%",
 	// left: "50%",
 	// transform: "translate(-50%,0%)",

@@ -122,16 +122,6 @@ let general_style = {
 	body: {
 		color: '#7A7A7A',
 	},
-	logos: {
-		wrapper: gen_wrapper,
-		logo_pic: {
-			display: 'inline-block',
-			verticalAlign: 'middle',
-			width: 200,
-			height: '100%',
-			backgroundColor: colors.circle_color,
-		},
-	},
 	whatWeDo: {
 		header: gen_header,
 		wrapper: gen_wrapper,
@@ -167,7 +157,7 @@ var HomePage = React.createClass({
 		return (
 			<div style={general_style.container}>
 				<Header style={general_style.homePage} />
-				<Logos style={general_style.logos} />
+				<Logos />
 				<WhatWeDo style={general_style.whatWeDo} />
 				<SparkgigAdvantage />
 				<HowItWorks style={general_style.howItWorks} />
