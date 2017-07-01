@@ -2,21 +2,21 @@ var React = require('react');
 var Step = require('./HowItWorksStep.js');
 
 var howItWorksData = [{
-		description: "this is a line about what we offer event1",
-		link: "event1link",
-		imageLink: "event1imagelink"
+		title: "Tell us about your event!",
+		description: "Select the date and time you would like your performer to show up.",
+		imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%2025.png?raw=true"
 	}, {
-		description: "this is a line about what we offer event2",
-		link: "event2link",
-		imageLink: "event2imagelink"
+		title: "Select the perfect package for you.",
+		description: "Instantly see all our package prices, and availability. ",
+		imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%206.png?raw=true"
 	}, {
-		description: "this is a line about what we offer event3",
-		link: "event3link",
-		imageLink: "event3imagelink"
+		title: "Reserve your performers.",
+		description: "We will confirm your performer(s) electronically and securely via a small deposit",
+		imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%2024.png?raw=true"
 	}, {
-		description: "this is a line about what we offer event4",
-		link: "event4link",
-		imageLink: "event4imagelink"
+		title: "Your performers are confirmed!",
+		description: "Sit back and relax. We’ll take the entertainment from here. You will receive consistent reminders from us till the special day.",
+		imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%2030.png?raw=true"
 	}
 ];
 
@@ -33,8 +33,8 @@ var HowItWorks = React.createClass({
 						return (
 							<Step key={num}
 								  number={num}
+								  title={data.title}
 								  description={data.description}
-								  link={data.link}
 								  imageLink={data.imageLink} />
 						)
 					})

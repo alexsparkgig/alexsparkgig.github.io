@@ -15,15 +15,13 @@ var colors = {
 
 const wrapper = {
 	display: 'flex',
-	flexDirection: 'row',
 	height: 250,
 	textAlign: 'center',
 	margin: '0% 20%',
 }
 
 const next_wrapper = {
-	flexGrow: '5',
-	display: 'flex',
+	display: '-webkit-inline-box',
 	alignSelf: 'center',
 	transform: 'translateY(-50%)',
 }
@@ -31,11 +29,10 @@ const next_wrapper = {
 let style_pic = {
 	float: 'left',
 	borderRadius: '25px',
-	backgroundColor: colors.circle_color,
-	width: "25%",
+	width: "40%",
 	height: '80%',
 	display: 'inline-block',
-	flexGrow: '2',
+	flexGrow: '1',
 }
 
 const steps_wrapper = {
@@ -54,10 +51,8 @@ const circle = {
 	textAlign: 'center',
 	lineHeight: '50px',
 	fontSize: '150%',
-	// display: 'inline-block',
 }
 const text_wrapper = {
-	// display: 'inline-block',
 	height: 75,
 	textAlign: 'left',
 }
@@ -77,24 +72,34 @@ var Step = React.createClass({
 	propTypes: {
 		imageLink: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
-		link: PropTypes.string.isRequired
+		title: PropTypes.string.isRequired,
 	},
 	render: function() {
-		if (this.props.number % 2 === 1) {
+		if (this.props.number === 1) {
 			style_pic.marginRight = '5%';
+			style_pic.width = '40%';
+		} else if (this.props.number === 2) {
+			next_wrapper.marginRight = '10%';
+			style_pic.width = '45%';
+		} else if (this.props.number === 3) {
+			style_pic.marginRight = '5%';
+			style_pic.width = '40%';
+		} else if (this.props.number === 4) {
+			next_wrapper.marginRight = '10%';
+			style_pic.width = '20%';
 		}
 
 		return (
 			<div style={wrapper}>
-				{(this.props.number % 2 == 1) && <div className="img_placeholder" style={style_pic}>raaahdsfgsfg</div>}
+				{(this.props.number % 2 == 1) && <img src={this.props.imageLink} style={style_pic} />}
 				<div className="title_and_desc" style={next_wrapper}>
 					<div className="number" style={circle}>{this.props.number}</div>
 					<div style={text_wrapper}>
-						<div style={heading}>{"Step " + this.props.number}</div>
+						<div style={heading}>{this.props.title}</div>
 						<div style={description}>{this.props.description}</div>
 					</div>
 				</div>
-				{(this.props.number % 2 == 0) && <div className="img_placeholder" style={style_pic}>raaahdsfgsfg</div>}
+				{(this.props.number % 2 == 0) && <img src={this.props.imageLink} style={style_pic} />}
 			</div>
 		)
 	}
