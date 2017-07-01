@@ -11,11 +11,13 @@ let cta_style = {
 	backgroundColor: "white",
 	color: CTA_button_color,
 	lineHeight: "40px",
+	// alignSelf: 'center',
+	// transform: 'translateY(50%)',
 }
 
 const wrapper = {
 	width: '100%',
-	height: "100vh",
+	height: "80vh",
 	display: 'flex',
 	textAlign: 'center',
 	backgroundColor: "rgb(110, 179, 211)",
@@ -41,18 +43,29 @@ const logo = {
 const text = {
 	display: "inline-block",
 	fontSize: 24,
-	transform: "translate(0%, 55%)",
+	// transform: "translate(0%, 55%)",
 }
 
 const heading = {
 	fontSize: 40,
 	width: "60%",
 	marginBottom: 20,
+	// alignSelf: 'center',
+	// transform: 'translateY(50%)',
 }
 
 const tagline = {
 	fontSize: 24,
 	marginBottom: 40,
+	// transform: 'translateY(120%)',
+}
+
+const inner_wrapper = {
+	alignSelf: 'center',
+	display: 'flex',
+	alignItems: 'center',
+	flexFlow: 'column nowrap',
+	marginTop: '2%',
 }
 
 var CTA_button = React.createClass({
@@ -86,9 +99,11 @@ var Header = React.createClass({
 					<img style={logo} src={sparkgig_logo} />
 					{/*<div style={text}>SparkGig</div>*/}
 				</div>
+				<div style={inner_wrapper}>
 				<div style={heading}>Instantly book amazing performers for a fraction of the cost</div>
 				<div style={tagline}>Whether it's a simple holiday office party or birthday</div>
 				<CTA_button style={cta_style} onClick={this.viewExperiences} />
+				</div>
 			</div>
 		);
 	}

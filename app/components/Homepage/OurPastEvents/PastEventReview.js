@@ -63,6 +63,7 @@ var PastEventReview = React.createClass({
 				<div className="pics">
 					<img src={this.props.image1} style={style_pic} />
 					<img src={this.props.image2} style={style_pic} />
+					<img src={this.props.image3} style={style_pic} />
 				</div>
 				<div style={review_wrapper}>
 					{/*picture: <div style={face_pic}>picture placeholder here</div> <img src={} />*/}
