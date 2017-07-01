@@ -63,12 +63,9 @@ var PastEventReview = React.createClass({
 		return (
 			<div style={gen_wrapper}>
 				<div className="pics">
-					{/*<img src={} />*/}
-					{/*<img src={} />*/}
-					{/*<img src={} />*/}
-					<div style={style_pic}>placeholder pic</div>
-					<div style={style_pic}>placeholder pic</div>
-					<div style={style_pic}>placeholder pic</div>
+					{/*<img src={} style={style_pic} />
+					<img src={} style={style_pic} />
+					<img src={} style={style_pic} />*/}
 				</div>
 				<div style={review_wrapper}>
 					{/*picture: <img src={} />*/}

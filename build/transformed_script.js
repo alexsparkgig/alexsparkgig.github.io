@@ -10738,8 +10738,7 @@ const wrapper = {
 };
 
 const pic_style = {
-	width: '15%',
-	margin: '0 2%'
+	width: '100%'
 };
 
 var Logos = React.createClass({
@@ -10749,9 +10748,8 @@ var Logos = React.createClass({
 		return React.createElement(
 			"div",
 			{ style: wrapper },
-			logoData.map(function (data) {
-				return React.createElement("img", { src: data.imageLink, style: pic_style });
-			})
+			"return ",
+			React.createElement("img", { src: "/app/assets/logos.png", style: pic_style })
 		);
 	}
 });
@@ -10886,25 +10884,7 @@ var PastEventReview = React.createClass({
 		return React.createElement(
 			'div',
 			{ style: gen_wrapper },
-			React.createElement(
-				'div',
-				{ className: 'pics' },
-				React.createElement(
-					'div',
-					{ style: style_pic },
-					'placeholder pic'
-				),
-				React.createElement(
-					'div',
-					{ style: style_pic },
-					'placeholder pic'
-				),
-				React.createElement(
-					'div',
-					{ style: style_pic },
-					'placeholder pic'
-				)
-			),
+			React.createElement('div', { className: 'pics' }),
 			React.createElement(
 				'div',
 				{ style: review_wrapper },

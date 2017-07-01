@@ -18,20 +18,14 @@ const wrapper = {
 }
 
 const pic_style = {
-	width: '15%',
-	margin: '0 2%',
+	width: '100%',
+	margin: '2% 0%',
 	// height: '20%',
 }
 
 var Logos = React.createClass({
 	render: function() {
-		return (
-			<div style={wrapper}>
-				{logoData.map(function(data) {
-					return <img src={data.imageLink} style={pic_style} />
-				})}
-			</div>
-		)	
+		return <div style={wrapper}><img src="/app/assets/logos.png" style={pic_style} /></div>
 	}
 });
 
