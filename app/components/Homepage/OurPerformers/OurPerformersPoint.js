@@ -9,6 +9,8 @@ const text_wrapper = {
 	float: 'left',
 	textAlign: 'left',
 	marginBottom: 20,
+	width: '70%',
+	marginLeft: '15%',
 }
 
 const heading = {

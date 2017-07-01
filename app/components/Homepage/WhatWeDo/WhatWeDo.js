@@ -48,7 +48,7 @@ var WhatWeDo = React.createClass({
 			<div style={gen_wrapper} id={"whatwedo"}>
 				<div style={style.header}>What We Do</div>
 				{/* <iframe style={style.video} src={'https://www.youtube.com/embed/vFUaVhvfdLA'} /> */}
-				<div style={}>
+				<div style={text_block}>
 					Book amazing performers instantly for a fraction of the cost. In a few clicks, receive a quote, availability and just book! It’s that easy. With over 200 performers and our top tier customer service team, we have your back every step of the way to the day of the event.
 				</div>
 				<div style={card_wrapper}>

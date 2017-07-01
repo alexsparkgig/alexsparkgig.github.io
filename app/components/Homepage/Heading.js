@@ -31,7 +31,6 @@ const sparkgig_wrapper = {
 }
 
 const logo = {
-	borderRadius: "100%",
 	height: 100,
 	width: 200,
 	display: "inline-block",

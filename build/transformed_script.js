@@ -10232,15 +10232,14 @@ const wrapper = {
 };
 
 const sparkgig_wrapper = {
-	width: 200,
 	margin: 10,
 	alignSelf: 'flex-start'
 };
 
 const logo = {
 	borderRadius: "100%",
-	height: 50,
-	width: 50,
+	height: 100,
+	width: 200,
 	display: "inline-block",
 	margin: 10
 };
@@ -10289,7 +10288,7 @@ var CTA_button = React.createClass({
 	}
 });
 
-const sparkgig_logo = 'https://img.ogol.io/sparkgig.com.png?w=1200&h=630';
+var sparkgig_logo = "/app/assets/sparkgiglogo.svg";
 
 var Header = React.createClass({
 	displayName: 'Header',
@@ -10301,12 +10300,7 @@ var Header = React.createClass({
 			React.createElement(
 				'div',
 				{ style: sparkgig_wrapper },
-				React.createElement('img', { style: logo, src: sparkgig_logo }),
-				React.createElement(
-					'div',
-					{ style: text },
-					'SparkGig'
-				)
+				React.createElement('img', { style: logo, src: sparkgig_logo })
 			),
 			React.createElement(
 				'div',
@@ -10522,16 +10516,20 @@ var React = __webpack_require__(5);
 var Step = __webpack_require__(97);
 
 var howItWorksData = [{
-	description: "Tell us about your event! Select the date and time you would like your performer to show up.",
+	title: "Tell us about your event!",
+	description: "Select the date and time you would like your performer to show up.",
 	imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%2025.png?raw=true"
 }, {
-	description: "Select the perfect package for you. Instantly see all our package prices, and availability. ",
+	title: "Select the perfect package for you.",
+	description: "Instantly see all our package prices, and availability. ",
 	imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%206.png?raw=true"
 }, {
-	description: "Reserve your performers. We will confirm your performer(s) electronically and securely via a small deposit",
+	title: "Reserve your performers.",
+	description: "We will confirm your performer(s) electronically and securely via a small deposit",
 	imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%2024.png?raw=true"
 }, {
-	description: "Your performers are confirmed! Sitback and relax. We’ll take the entertainment from here. You will receive consistent reminders from us till the special day.",
+	title: "Your performers are confirmed!",
+	description: "Sit back and relax. We’ll take the entertainment from here. You will receive consistent reminders from us till the special day.",
 	imageLink: "https://github.com/alexsparkgig/alexsparkgig.github.io/blob/master/app/assets/Group%2030.png?raw=true"
 }];
 
@@ -10552,6 +10550,7 @@ var HowItWorks = React.createClass({
 				var num = i + 1;
 				return React.createElement(Step, { key: num,
 					number: num,
+					title: data.title,
 					description: data.description,
 					imageLink: data.imageLink });
 			})
@@ -10581,15 +10580,13 @@ var colors = {
 
 const wrapper = {
 	display: 'flex',
-	flexDirection: 'row',
 	height: 250,
 	textAlign: 'center',
 	margin: '0% 20%'
 };
 
 const next_wrapper = {
-	flexGrow: '5',
-	display: 'flex',
+	display: '-webkit-inline-box',
 	alignSelf: 'center',
 	transform: 'translateY(-50%)'
 };
@@ -10597,11 +10594,10 @@ const next_wrapper = {
 let style_pic = {
 	float: 'left',
 	borderRadius: '25px',
-	backgroundColor: colors.circle_color,
-	width: "25%",
+	width: "40%",
 	height: '80%',
 	display: 'inline-block',
-	flexGrow: '2'
+	flexGrow: '1'
 };
 
 const steps_wrapper = {
@@ -10622,7 +10618,6 @@ const circle = {
 	fontSize: '150%'
 };
 const text_wrapper = {
-	// display: 'inline-block',
 	height: 75,
 	textAlign: 'left'
 };
@@ -10642,21 +10637,27 @@ var Step = React.createClass({
 	propTypes: {
 		imageLink: PropTypes.string.isRequired,
 		description: PropTypes.string.isRequired,
-		link: PropTypes.string.isRequired
+		title: PropTypes.string.isRequired
 	},
 	render: function () {
-		if (this.props.number % 2 === 1) {
+		if (this.props.number === 1) {
 			style_pic.marginRight = '5%';
+			style_pic.width = '40%';
+		} else if (this.props.number === 2) {
+			next_wrapper.marginRight = '10%';
+			style_pic.width = '45%';
+		} else if (this.props.number === 3) {
+			style_pic.marginRight = '5%';
+			style_pic.width = '40%';
+		} else if (this.props.number === 4) {
+			next_wrapper.marginRight = '10%';
+			style_pic.width = '20%';
 		}
 
 		return React.createElement(
 			'div',
 			{ style: wrapper },
-			this.props.number % 2 == 1 && React.createElement(
-				'div',
-				{ className: 'img_placeholder', style: style_pic },
-				'raaahdsfgsfg'
-			),
+			this.props.number % 2 == 1 && React.createElement('img', { src: this.props.imageLink, style: style_pic }),
 			React.createElement(
 				'div',
 				{ className: 'title_and_desc', style: next_wrapper },
@@ -10671,7 +10672,7 @@ var Step = React.createClass({
 					React.createElement(
 						'div',
 						{ style: heading },
-						"Step " + this.props.number
+						this.props.title
 					),
 					React.createElement(
 						'div',
@@ -10680,11 +10681,7 @@ var Step = React.createClass({
 					)
 				)
 			),
-			this.props.number % 2 == 0 && React.createElement(
-				'div',
-				{ className: 'img_placeholder', style: style_pic },
-				'raaahdsfgsfg'
-			)
+			this.props.number % 2 == 0 && React.createElement('img', { src: this.props.imageLink, style: style_pic })
 		);
 	}
 });
@@ -11027,7 +11024,9 @@ const review_wrapper = {
 const text_wrapper = {
 	float: 'left',
 	textAlign: 'left',
-	marginBottom: 20
+	marginBottom: 20,
+	width: '70%',
+	marginLeft: '15%'
 };
 
 const heading = {
@@ -11339,6 +11338,11 @@ let gen_wrapper = {
 	margin: '0% 10%'
 };
 
+const text_block = {
+	width: '70%',
+	marginLeft: '15%'
+};
+
 var WhatWeDo = React.createClass({
 	displayName: 'WhatWeDo',
 
@@ -11354,8 +11358,8 @@ var WhatWeDo = React.createClass({
 			),
 			React.createElement(
 				'div',
-				null,
-				'Book amazing performers instantly for a fraction of the cost. In a few clicks, receive a quote, availability and just book! It\u2019s that easy. With over 200 performers and our top tier customer service team,we have your back every step of the way to the day of the event.'
+				{ style: text_block },
+				'Book amazing performers instantly for a fraction of the cost. In a few clicks, receive a quote, availability and just book! It\u2019s that easy. With over 200 performers and our top tier customer service team, we have your back every step of the way to the day of the event.'
 			),
 			React.createElement(
 				'div',
