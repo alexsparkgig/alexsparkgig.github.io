@@ -7,7 +7,6 @@ let gen_wrapper = {
 }
 
 const pic = {
-	// backgroundColor: colors.circle_color,
 	margin: '2px',
 	width: '30%',
 	height: 225,
@@ -16,8 +15,8 @@ const pic = {
 }
 
 const review_wrapper = {
-	margin: '3% 0% 0% 5%',
-	width: '100%',
+	margin: '3% 0% 0% 15%',
+	width: '80%',
 	height: 200,
 	display: 'flex',
 }
@@ -30,7 +29,6 @@ const text_wrapper = {
 
 const face_pic = {
 	borderRadius: '100%',
-	// backgroundColor: colors.circle_color,
 	width: 110,
 	height: 110,
 	float: 'left',
@@ -63,17 +61,15 @@ var PastEventReview = React.createClass({
 		return (
 			<div style={gen_wrapper}>
 				<div className="pics">
-					{/*<img src={} style={style_pic} />
-					<img src={} style={style_pic} />
-					<img src={} style={style_pic} />*/}
+					<img src={this.props.image1} style={style_pic} />
+					<img src={this.props.image2} style={style_pic} />
 				</div>
 				<div style={review_wrapper}>
-					{/*picture: <img src={} />*/}
-					<div style={face_pic}>picture placeholder here</div>
+					{/*picture: <div style={face_pic}>picture placeholder here</div> <img src={} />*/}
 					<div style={text_wrapper}>
 						<div style={heading}>{this.props.name}</div>
 						<div style={description}>{this.props.description}</div>
-						<div style={description}>{this.props.person_name}</div>
+						<div style={description}><i>{this.props.person_name}</i></div>
 					</div>
 				</div>
 			</div>
