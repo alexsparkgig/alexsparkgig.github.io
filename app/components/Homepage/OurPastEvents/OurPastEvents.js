@@ -17,7 +17,7 @@ var eventData = [{
 		link: "event2link",
 		imageLink: "http://www.zoomentertainment.com.au/images/entertainers/facepainter-sarah-melbourne.jpg",
 		image1: "http://www.supersteph.com/wp-content/gallery/balloon-gallery/balloon-twisting.jpg",
-		image2: "http://www.3wheeledscooter.org/wp-content/uploads/2017/03/Party.jpg",
+		image2: "/app/assets/BAN3.jpg",
 		image3: "/app/assets/BAN5.jpg"
 	}
 ];

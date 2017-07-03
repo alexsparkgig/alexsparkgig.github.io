@@ -15,7 +15,7 @@ var colors = {
 
 const wrapper = {
 	display: 'flex',
-	height: 200,
+	height: 215,
 	textAlign: 'center',
 	margin: '0% 20%',
 	alignItems: 'center',
@@ -23,14 +23,9 @@ const wrapper = {
 
 const next_wrapper = {
 	display: '-webkit-inline-box',
-	// alignSelf: 'center',
-	// transform: 'translateY(-50%)',
 }
 
 let style_pic = {
-	// width: "40%",
-	// height: '80%',
-	// width: '40%',
 	height: 'auto',
 	flexGrow: '1',
 }
@@ -53,7 +48,6 @@ const circle = {
 	fontSize: '150%',
 }
 const text_wrapper = {
-	// minHeight: 100,
 	textAlign: 'left',
 }
 

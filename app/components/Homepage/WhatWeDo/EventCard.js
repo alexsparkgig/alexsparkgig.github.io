@@ -24,8 +24,7 @@ let gen_card = {
 	},
 	pic: {
 		backgroundColor: '#F1F2F5',
-		width: '100%',
-		height: '50%',
+		width: 380,
 	},
 	text_wrapper: {
 		marginLeft: 20,
@@ -62,6 +61,12 @@ const whatwedo_wrapper = {
 	flexDirection: 'column',
 }
 
+let pic_container = {
+	overflow: 'hidden',
+	height: 200,
+	width: '100%',
+}
+
 var EventCard = React.createClass({
 	propTypes: {
 		imageLink: PropTypes.string.isRequired,
@@ -76,9 +81,17 @@ var EventCard = React.createClass({
 	render() {
 		var card_styles = gen_card;
 
+		if (this.props.origin == "SparkgigAdvantage") {
+			gen_card.pic.width = 'initial'
+			gen_card.pic.backgroundColor = 'initial'
+			pic_container.backgroundColor = '#F1F2F5'
+		}
+
 		return (
 			<div style={(this.props.origin == "WhatWeDo") ? whatwedo_wrapper : card_styles.wrapper}>
-				<img style={card_styles.pic} src={this.props.imageLink} />
+				<div style={pic_container}>
+					<img style={card_styles.pic} src={this.props.imageLink} />	
+				</div>
 				<div style={card_styles.text_wrapper}>
 					<div className="heading"
 						 style={card_styles.heading}>

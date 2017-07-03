@@ -7097,8 +7097,7 @@ let gen_card = {
 	},
 	pic: {
 		backgroundColor: '#F1F2F5',
-		width: '100%',
-		height: '50%'
+		width: 380
 	},
 	text_wrapper: {
 		marginLeft: 20,
@@ -7135,6 +7134,12 @@ const whatwedo_wrapper = {
 	flexDirection: 'column'
 };
 
+let pic_container = {
+	overflow: 'hidden',
+	height: 200,
+	width: '100%'
+};
+
 var EventCard = React.createClass({
 	displayName: 'EventCard',
 
@@ -7151,10 +7156,20 @@ var EventCard = React.createClass({
 	render() {
 		var card_styles = gen_card;
 
+		if (this.props.origin == "SparkgigAdvantage") {
+			gen_card.pic.width = 'initial';
+			gen_card.pic.backgroundColor = 'initial';
+			pic_container.backgroundColor = '#F1F2F5';
+		}
+
 		return React.createElement(
 			'div',
 			{ style: this.props.origin == "WhatWeDo" ? whatwedo_wrapper : card_styles.wrapper },
-			React.createElement('img', { style: card_styles.pic, src: this.props.imageLink }),
+			React.createElement(
+				'div',
+				{ style: pic_container },
+				React.createElement('img', { style: card_styles.pic, src: this.props.imageLink })
+			),
 			React.createElement(
 				'div',
 				{ style: card_styles.text_wrapper },
@@ -10222,15 +10237,18 @@ let cta_style = {
 
 const wrapper = {
 	width: '100%',
-	height: "80vh",
+	height: "75vh",
 	display: 'flex',
 	textAlign: 'center',
-	backgroundColor: "rgb(110, 179, 211)",
+	backgroundColor: "rgba(110, 179, 211, 0.5)",
+	// opacity: '0.4', 
 	color: "white",
 	flexFlow: 'column nowrap',
 	alignItems: 'center',
 	alignContent: 'space-between',
-	overflow: "hidden"
+	// overflow: "hidden",
+	backgroundSize: 'cover',
+	backgroundImage: 'url("/app/assets/banner.png")'
 };
 
 const sparkgig_wrapper = {
@@ -10364,7 +10382,7 @@ let gen_header = {
 	color: colors.section,
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
-	margin: '4% 30px',
+	margin: '2% 30px',
 	fontSize: '32px'
 };
 
@@ -10586,21 +10604,17 @@ var colors = {
 
 const wrapper = {
 	display: 'flex',
-	height: 250,
+	height: 215,
 	textAlign: 'center',
-	margin: '0% 20%'
+	margin: '0% 20%',
+	alignItems: 'center'
 };
 
 const next_wrapper = {
-	display: '-webkit-inline-box',
-	alignSelf: 'center',
-	transform: 'translateY(-50%)'
+	display: '-webkit-inline-box'
 };
 
 let style_pic = {
-	// width: "40%",
-	// height: '80%',
-	// width: '40%',
 	height: 'auto',
 	flexGrow: '1'
 };
@@ -10623,7 +10637,6 @@ const circle = {
 	fontSize: '150%'
 };
 const text_wrapper = {
-	// minHeight: 100,
 	textAlign: 'left'
 };
 
@@ -10649,24 +10662,24 @@ var Step = React.createClass({
 		if (this.props.number === 1) {
 			style_pic.marginRight = '5%';
 			// style_pic.width = '40%';
-			style_pic.width = 301;
+			// style_pic.width = 301
 			style_pic.height = 134;
 		} else if (this.props.number === 2) {
 			style_pic.marginRight = '0%';
 			style_pic.marginLeft = '10%';
 			// style_pic.width = '45%';
-			style_pic.width = 240;
+			// style_pic.width = 240
 			style_pic.height = 137;
 		} else if (this.props.number === 3) {
 			style_pic.marginRight = '5%';
 			style_pic.marginLeft = '0%';
 			// style_pic.width = '40%';
-			style_pic.width = 291;
+			// style_pic.width = 291
 			style_pic.height = 210;
 		} else if (this.props.number === 4) {
 			style_pic.marginLeft = '10%';
 			// style_pic.width = '20%';
-			style_pic.width = 182;
+			// style_pic.width = 182
 			style_pic.height = 260;
 		}
 
@@ -10800,7 +10813,7 @@ var eventData = [{
 	link: "event2link",
 	imageLink: "http://www.zoomentertainment.com.au/images/entertainers/facepainter-sarah-melbourne.jpg",
 	image1: "http://www.supersteph.com/wp-content/gallery/balloon-gallery/balloon-twisting.jpg",
-	image2: "http://www.3wheeledscooter.org/wp-content/uploads/2017/03/Party.jpg",
+	image2: "/app/assets/BAN3.jpg",
 	image3: "/app/assets/BAN5.jpg"
 }];
 

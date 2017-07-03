@@ -17,15 +17,18 @@ let cta_style = {
 
 const wrapper = {
 	width: '100%',
-	height: "80vh",
+	height: "75vh",
 	display: 'flex',
 	textAlign: 'center',
-	backgroundColor: "rgb(110, 179, 211)",
+	backgroundColor: "rgba(110, 179, 211, 0.5)",
+	// opacity: '0.4', 
 	color: "white",
 	flexFlow: 'column nowrap',
 	alignItems: 'center',
 	alignContent: 'space-between',
-	overflow: "hidden",
+	// overflow: "hidden",
+	backgroundSize: 'cover',
+	backgroundImage: 'url("/app/assets/banner.png")'
 }
 
 const sparkgig_wrapper = {
