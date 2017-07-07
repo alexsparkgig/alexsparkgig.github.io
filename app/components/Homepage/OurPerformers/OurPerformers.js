@@ -25,17 +25,17 @@ var ourPerformersData = [{
 ];
 
 const header = {
-	color: '#64717A',
+	color: 'rgb(80, 80, 80)',
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
-	margin: '30px',
+	marginBottom: '30px',
 	fontSize: '32px'
 }
 
 const wrapper = {
 	width: '80%',
 	textAlign: 'center',
-	margin: '0% 10%',
+	margin: '15px 10%',
 	display: 'flex',
 	flexDirection: 'column',
 }

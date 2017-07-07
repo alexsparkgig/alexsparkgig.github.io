@@ -14,7 +14,7 @@ var Quote = require('./Quote/Quote.js');
 
 
 var colors = {
-	section: '#64717A', // (what we do, our locations) section title
+	section: 'rgb(80, 80, 80)', // (what we do, our locations) section title
 	pale_blue: '#FBFCFF',
 	body_text: '#7A7A7A',
 	circle_color: '#EAEBEE',

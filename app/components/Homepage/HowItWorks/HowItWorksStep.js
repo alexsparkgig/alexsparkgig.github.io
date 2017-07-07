@@ -52,13 +52,14 @@ const text_wrapper = {
 }
 
 const heading = {
-	color: 'black',
+	color: 'rgb(80, 80, 80)',
 	fontWeight: '500',
-	fontSize: '25px'
+	fontSize: '21px',
+	marginBottom: '6px',
 }
 const description = {
 	color: colors.section,
-	fontSize: '17px'
+	fontSize: '16px',
 }
 
 

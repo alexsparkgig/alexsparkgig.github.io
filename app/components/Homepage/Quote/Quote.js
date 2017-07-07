@@ -21,7 +21,8 @@ let submit_style = {
 	fontSize: '20px',
 	border: 'none',
 	cursor: 'pointer',
-	margin: '20px 0',
+	marginTop: 20,
+	marginBottom: 50,
 }
 
 const inline = {

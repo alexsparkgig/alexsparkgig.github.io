@@ -21,7 +21,7 @@ var howItWorksData = [{
 ];
 
 const gen_wrapper = {
-	margin: '3% 0%',
+	marginBottom: '3%',
 }
 
 var HowItWorks = React.createClass({

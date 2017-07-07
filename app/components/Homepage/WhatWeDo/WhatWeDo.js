@@ -33,12 +33,13 @@ const card_wrapper = {
 let gen_wrapper = {
 	width: '80%',
 	textAlign: 'center',
-	margin: '2% 10%',
+	margin: '0 10%',
 }
 
 const text_block = {
 	width: '70%',
-	marginLeft: '15%',
+	margin: '30px 15%',
+	color: 'rgb(100, 113, 122)',
 }
 
 var WhatWeDo = React.createClass({

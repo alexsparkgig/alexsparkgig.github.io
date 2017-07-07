@@ -24,7 +24,7 @@ let gen_card = {
 	},
 	pic: {
 		backgroundColor: '#F1F2F5',
-		width: 380,
+		width: 410,
 	},
 	text_wrapper: {
 		marginLeft: 20,
@@ -34,13 +34,14 @@ let gen_card = {
 		flexDirection: 'column',
 	},
 	heading: {
-		color: 'black',
+		color: 'rgb(80, 80, 80)',
 		fontSize: '22px',
 		fontWeight: '500',
 		margin: '14px 0',
 	},
 	description: {
 		color: colors.section,
+		marginRight: 15,
 	},
 	cta_text: {
 		color: colors.CTA_buttons,

@@ -8,15 +8,21 @@ const review_wrapper = {
 const text_wrapper = {
 	float: 'left',
 	textAlign: 'left',
-	marginBottom: 20,
+	marginBottom: 30,
 	width: '70%',
 	marginLeft: '15%',
 }
 
 const heading = {
-	color: 'black',
-	fontSize: '25px',
+	color: 'rgb(80, 80, 80)',
+	fontSize: '21px',
+	marginBottom: 6,
 	fontWeight: '500',
+}
+
+const desc = {
+	fontSize: '16px',
+	color: 'rgb(100, 113, 122)',
 }
 
 
@@ -25,7 +31,7 @@ var OurPerformersPoint = React.createClass({
 		return (
 			<div style={text_wrapper}>
 				<div style={heading}>{this.props.number}. {this.props.header}</div>
-				<div>{this.props.text}</div>
+				<div style={desc}>{this.props.text}</div>
 			</div>
 		)	
 	}

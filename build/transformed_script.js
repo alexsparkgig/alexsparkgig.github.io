@@ -7097,7 +7097,7 @@ let gen_card = {
 	},
 	pic: {
 		backgroundColor: '#F1F2F5',
-		width: 380
+		width: 410
 	},
 	text_wrapper: {
 		marginLeft: 20,
@@ -7107,13 +7107,14 @@ let gen_card = {
 		flexDirection: 'column'
 	},
 	heading: {
-		color: 'black',
+		color: 'rgb(80, 80, 80)',
 		fontSize: '22px',
 		fontWeight: '500',
 		margin: '14px 0'
 	},
 	description: {
-		color: colors.section
+		color: colors.section,
+		marginRight: 15
 	},
 	cta_text: {
 		color: colors.CTA_buttons,
@@ -10368,7 +10369,7 @@ var Locations = __webpack_require__(98);
 var Quote = __webpack_require__(104);
 
 var colors = {
-	section: '#64717A', // (what we do, our locations) section title
+	section: 'rgb(80, 80, 80)', // (what we do, our locations) section title
 	pale_blue: '#FBFCFF',
 	body_text: '#7A7A7A',
 	circle_color: '#EAEBEE',
@@ -10554,7 +10555,7 @@ var howItWorksData = [{
 }];
 
 const gen_wrapper = {
-	margin: '3% 0%'
+	marginBottom: '3%'
 };
 
 var HowItWorks = React.createClass({
@@ -10641,13 +10642,14 @@ const text_wrapper = {
 };
 
 const heading = {
-	color: 'black',
+	color: 'rgb(80, 80, 80)',
 	fontWeight: '500',
-	fontSize: '25px'
+	fontSize: '21px',
+	marginBottom: '6px'
 };
 const description = {
 	color: colors.section,
-	fontSize: '17px'
+	fontSize: '16px'
 };
 
 var Step = React.createClass({
@@ -10818,7 +10820,7 @@ var eventData = [{
 }];
 
 let gen_header = {
-	color: '#64717A',
+	color: 'rgb(80, 80, 80)',
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
 	margin: '30px',
@@ -10894,7 +10896,7 @@ const face_pic = {
 };
 
 const heading = {
-	color: 'black',
+	color: 'rgb(80, 80, 80)',
 	fontSize: '25px',
 	height: '33%',
 	lineHeight: '200%',
@@ -10991,17 +10993,17 @@ var ourPerformersData = [{
 }];
 
 const header = {
-	color: '#64717A',
+	color: 'rgb(80, 80, 80)',
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
-	margin: '30px',
+	marginBottom: '30px',
 	fontSize: '32px'
 };
 
 const wrapper = {
 	width: '80%',
 	textAlign: 'center',
-	margin: '0% 10%',
+	margin: '15px 10%',
 	display: 'flex',
 	flexDirection: 'column'
 };
@@ -11044,15 +11046,21 @@ const review_wrapper = {
 const text_wrapper = {
 	float: 'left',
 	textAlign: 'left',
-	marginBottom: 20,
+	marginBottom: 30,
 	width: '70%',
 	marginLeft: '15%'
 };
 
 const heading = {
-	color: 'black',
-	fontSize: '25px',
+	color: 'rgb(80, 80, 80)',
+	fontSize: '21px',
+	marginBottom: 6,
 	fontWeight: '500'
+};
+
+const desc = {
+	fontSize: '16px',
+	color: 'rgb(100, 113, 122)'
 };
 
 var OurPerformersPoint = React.createClass({
@@ -11071,7 +11079,7 @@ var OurPerformersPoint = React.createClass({
 			),
 			React.createElement(
 				'div',
-				null,
+				{ style: desc },
 				this.props.text
 			)
 		);
@@ -11107,7 +11115,8 @@ let submit_style = {
 	fontSize: '20px',
 	border: 'none',
 	cursor: 'pointer',
-	margin: '20px 0'
+	marginTop: 20,
+	marginBottom: 50
 };
 
 const inline = {
@@ -11270,7 +11279,7 @@ var eventData = [{
 }];
 
 let gen_header = {
-	color: '#64717A',
+	color: 'rgb(80, 80, 80)',
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
 	margin: '30px',
@@ -11356,12 +11365,13 @@ const card_wrapper = {
 let gen_wrapper = {
 	width: '80%',
 	textAlign: 'center',
-	margin: '2% 10%'
+	margin: '0 10%'
 };
 
 const text_block = {
 	width: '70%',
-	marginLeft: '15%'
+	margin: '30px 15%',
+	color: 'rgb(100, 113, 122)'
 };
 
 var WhatWeDo = React.createClass({

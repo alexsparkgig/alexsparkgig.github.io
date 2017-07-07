@@ -20,7 +20,7 @@ var eventData = [{
 ];
 
 let gen_header = {
-	color: '#64717A',
+	color: 'rgb(80, 80, 80)',
 	textAlign: 'center',
 	fontFamily: 'Helvetica Neue',
 	margin: '30px',

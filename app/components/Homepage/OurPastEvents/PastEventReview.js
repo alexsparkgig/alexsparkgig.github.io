@@ -36,7 +36,7 @@ const face_pic = {
 }
 
 const heading = {
-	color: 'black',
+	color: 'rgb(80, 80, 80)',
 	fontSize: '25px',
 	height: '33%',
 	lineHeight: '200%',
